@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promego – Logotuotteita toimialallesi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #3d7a4f;
+      --green-dark:  #2c5c39;
+      --green-light: #eef6f1;
+      --orange:      #e8a020;
+      --text:        #1a1a1a;
+      --muted:       #555;
+      --border:      #d4e6da;
+      --white:       #ffffff;
+    }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      color: var(--text);
+      background: #f7faf8;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--white);
+      border-bottom: 3px solid var(--green);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      color: var(--green-dark);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    nav {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    nav a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 4px;
+      transition: background .18s, color .18s;
+    }
+
+    nav a:hover { background: var(--green-light); color: var(--green-dark); }
+    nav a.active { background: var(--green); color: var(--white); }
+
+    .header-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: .82rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .header-contact a {
+      color: var(--green-dark);
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      background: var(--green-dark);
+      overflow: hidden;
+      min-height: 460px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .hero-slide.active { opacity: 1; }
+
+    /* Placeholder gradient slides */
+    .hero-slide:nth-child(1) { background: linear-gradient(135deg, #2c5c39 0%, #3d7a4f 50%, #1a3a24 100%); }
+    .hero-slide:nth-child(2) { background: linear-gradient(135deg, #1a3a24 0%, #4a8f60 50%, #2c5c39 100%); }
+    .hero-slide:nth-child(3) { background: linear-gradient(135deg, #3d7a4f 0%, #1a3a24 50%, #4a8f60 100%); }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.15) 60%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: .8rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.08;
+      max-width: 600px;
+      margin-bottom: 20px;
+      letter-spacing: .01em;
+    }
+
+    .hero p {
+      color: rgba(255,255,255,.85);
+      font-size: 1.1rem;
+      font-weight: 300;
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--orange);
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 4px;
+      transition: background .2s, transform .15s;
+    }
+
+    .hero-cta:hover { background: #c8880f; transform: translateY(-2px); }
+
+    /* Slide dots */
+    .hero-dots {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 3;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.4);
+      cursor: pointer;
+      transition: background .3s;
+      border: none;
+    }
+
+    .dot.active { background: var(--white); }
+
+    /* ── SECTION TITLES ── */
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--green-dark);
+      letter-spacing: .02em;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── TOIMIALAT ── */
+    .toimialat-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    .toimiala-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .toimiala-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--green);
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 22px 18px;
+      border-radius: 6px;
+      text-align: center;
+      transition: background .18s, transform .15s, box-shadow .15s;
+      border: 2px solid transparent;
+    }
+
+    .toimiala-btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(61,122,79,.25);
+    }
+
+    /* ── TUOTTEET KATEGORIAT ── */
+    .tuotteet-section {
+      background: var(--green-dark);
+      padding: 64px 24px;
+    }
+
+    .tuotteet-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .tuotteet-section .section-title h2 { color: var(--white); }
+    .tuotteet-section .section-title p { color: rgba(255,255,255,.75); }
+
+    .tuote-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .tuote-card {
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 8px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: background .2s, transform .15s;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .tuote-card:hover {
+      background: rgba(255,255,255,.16);
+      transform: translateY(-4px);
+    }
+
+    .tuote-icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .tuote-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .tuote-card p {
+      font-size: .88rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.5;
+    }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--orange);
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: .03em;
+      margin-bottom: 12px;
+    }
+
+    .cta-banner p {
+      color: rgba(255,255,255,.9);
+      margin-bottom: 28px;
+      font-size: 1rem;
+    }
+
+    .btn-white {
+      display: inline-block;
+      background: var(--white);
+      color: var(--orange);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a1a1a;
+      color: rgba(255,255,255,.75);
+      padding: 48px 24px 28px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer-desc {
+      font-size: .88rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,.55);
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-col a, .footer-col p {
+      display: block;
+      color: rgba(255,255,255,.6);
+      text-decoration: none;
+      font-size: .88rem;
+      line-height: 2;
+      transition: color .15s;
+    }
+
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 20px auto 0;
+      font-size: .78rem;
+      color: rgba(255,255,255,.3);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .header-inner { flex-wrap: wrap; height: auto; padding: 12px 16px; gap: 10px; }
+      nav { flex-wrap: wrap; gap: 4px; }
+      nav a { font-size: .82rem; padding: 5px 10px; }
+      .toimiala-grid { grid-template-columns: repeat(2, 1fr); }
+      .tuote-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+      .hero-content { padding: 48px 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .toimiala-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">PROMEGO</a>
+    <nav>
+      <a href="index.html" class="active">Etusivu</a>
+      <a href="tuotteet.html">Tuotteet</a>
+      <a href="toimialat.html">Toimialoittain</a>
+      <a href="yritys.html">Yritys</a>
+      <a href="yhteys.html">Yhteys</a>
+    </nav>
+    <div class="header-contact">
+      <span>Ota yhteyttä</span>
+      <a href="tel:0408641384">040 864 1384</a>
+      <a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Yli 25 vuoden kokemus</span>
+    <h1>Logotuotteita, jotka saavat asiakkaasi hymyilemään</h1>
+    <p>Laatu ja toimivuus käsi kädessä – löydä täsmätuotteita toimialallesi Promegolta.</p>
+    <a href="yhteys.html" class="hero-cta">
+      Ota yhteyttä →
+    </a>
+  </div>
+  <div class="hero-dots">
+    <button class="dot active" onclick="goToSlide(0)"></button>
+    <button class="dot" onclick="goToSlide(1)"></button>
+    <button class="dot" onclick="goToSlide(2)"></button>
+  </div>
+</section>
+
+<!-- TOIMIALAT -->
+<section class="toimialat-section">
+  <div class="section-title">
+    <h2>Tuotteet toimialoittain</h2>
+    <p>Laatu ja toimivuus käsi kädessä – löydä täsmätuotteita toimialallesi Promegolta.</p>
+  </div>
+  <div class="toimiala-grid">
+    <a href="apteekit.html" class="toimiala-btn">💊 Apteekit</a>
+    <a href="koulut.html" class="toimiala-btn">🎓 Koulut ja oppilaitokset</a>
+    <a href="kaupat.html" class="toimiala-btn">🛒 Kaupat</a>
+    <a href="kirjastot.html" class="toimiala-btn">📚 Kirjastot</a>
+    <a href="kunnat.html" class="toimiala-btn">🏛️ Kaupungit ja kunnat</a>
+    <a href="seurakunnat.html" class="toimiala-btn">⛪ Seurakunnat</a>
+    <a href="metsaala.html" class="toimiala-btn">🌲 Metsäalan toimijat</a>
+    <a href="rakennusala.html" class="toimiala-btn">🏗️ Rakennusalan toimijat</a>
+    <a href="kauppakeskukset.html" class="toimiala-btn">🏢 Kauppakeskukset ja tapahtumatalot</a>
+  </div>
+</section>
+
+<!-- TUOTTEET -->
+<section class="tuotteet-section">
+  <div class="tuotteet-inner">
+    <div class="section-title">
+      <h2>Tuotteemme</h2>
+      <p>Promego logotuotteita, jotka saavat asiakkaasi hymyilemään – eikä vain pakettia avatessaan.</p>
+    </div>
+    <div class="tuote-grid">
+      <a href="tekstiilit.html" class="tuote-card">
+        <span class="tuote-icon">👕</span>
+        <h3>Yritystekstiilit</h3>
+        <p>Laadukkaat logolippikset ja yritystekstiilit. Pehmeät paketit asiakkaillesi.</p>
+      </a>
+      <a href="liikelahjat.html" class="tuote-card">
+        <span class="tuote-icon">🎁</span>
+        <h3>Liikelahjat</h3>
+        <p>Kovat paketit – laadukkaat liikelahjat, jotka jäävät mieleen. AARNI-kellot, logokynät ja paljon muuta.</p>
+      </a>
+      <a href="yhteys.html" class="tuote-card">
+        <span class="tuote-icon">📩</span>
+        <h3>Kiinnostuitko?</h3>
+        <p>Ota yhteyttä ja kerro tarpeistasi. Löydämme yhdessä parhaat tuotteet juuri teille.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>Kiinnostuitko? Ota yhteyttä!</h2>
+  <p>Räätälöidään juuri teidän toimialalle sopivat tuotteet yhdessä.</p>
+  <a href="yhteys.html" class="btn-white">OTA YHTEYTTÄ</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">PROMEGO</div>
+      <p class="footer-desc">Laatu ja toimivuus käsi kädessä. Logotuotteita ja toimistotarvikkeita eri toimialoille yli 25 vuoden kokemuksella.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Sivut</h4>
+      <a href="index.html">Etusivu</a>
+      <a href="tuotteet.html">Tuotteet</a>
+      <a href="toimialat.html">Toimialoittain</a>
+      <a href="yritys.html">Yritys</a>
+      <a href="yhteys.html">Yhteys</a>
+    </div>
+    <div class="footer-col">
+      <h4>Yhteystiedot</h4>
+      <p>Jussi Lepistö</p>
+      <a href="tel:0408641384">040 864 1384</a>
+      <a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a>
+      <a href="https://www.promego.fi">www.promego.fi</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Promego. Kaikki oikeudet pidätetään.</span>
+    <span>www.promego.fi</span>
+  </div>
+</footer>
+
+<script>
+  // Slideshow
+  let current = 0;
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.dot');
+
+  function goToSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  setInterval(() => {
+    goToSlide((current + 1) % slides.length);
+  }, 4500);
+</script>
+
+</body>
+</html>

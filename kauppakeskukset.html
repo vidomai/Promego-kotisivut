@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Kauppakeskukset ja tapahtumatalot – Promego</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>html{visibility:hidden;opacity:0}</style>
+<script>
+  document.fonts.ready.then(function() {
+    document.documentElement.style.visibility = 'visible';
+    document.documentElement.style.opacity = '1';
+    document.documentElement.style.transition = 'opacity 0.1s ease';
+  });
+</script>
+</head>
+<body>
+<header><div class="header-inner">
+  <a href="index.html" class="logo">PROMEGO</a>
+  <nav><a href="index.html">Etusivu</a><a href="tuotteet.html">Tuotteet</a><a href="toimialat.html" class="active">Toimialoittain</a><a href="yritys.html">Yritys</a><a href="yhteys.html">Yhteys</a></nav>
+  <div class="header-contact"><span>Ota yhteyttä</span><a href="tel:0408641384">040 864 1384</a><a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a></div>
+</div></header>
+
+<section class="page-hero"><div class="page-hero-inner">
+  <div class="breadcrumb"><a href="index.html">Etusivu</a><span>›</span><a href="toimialat.html">Toimialoittain</a><span>›</span>Kauppakeskukset ja tapahtumatalot</div>
+  <div class="page-hero-tag">Toimiala</div>
+  <h1>🏢 Kauppakeskukset ja tapahtumatalot</h1>
+  <p>Kauppakeskuksille ja tapahtumaloille toimitamme ratkaisut opasteiden, ilmoitusten ja tiedotteiden hallintaan. Siisti ja ammattimainen ilme joka tilanteessa.</p>
+</div></section>
+
+<div class="content-layout">
+  <aside class="toimiala-nav">
+    <h3>Toimialat</h3>
+    <a href="apteekit.html">💊 Apteekit</a>
+    <a href="koulut.html">🎓 Koulut ja oppilaitokset</a>
+    <a href="kaupat.html">🛒 Kaupat</a>
+    <a href="kirjastot.html">📚 Kirjastot</a>
+    <a href="kunnat.html">🏛️ Kaupungit ja kunnat</a>
+    <a href="seurakunnat.html">⛪ Seurakunnat</a>
+    <a href="metsaala.html">🌲 Metsäalan toimijat</a>
+    <a href="rakennusala.html">🏗️ Rakennusalan toimijat</a>
+    <a href="kauppakeskukset.html" class="current">🏢 Kauppakeskukset</a>
+  </aside>
+  <main class="tuotteet-content">
+    <h2>Tuotteet kauppakeskuksille ja tapahtumaloille</h2>
+    <p class="intro-text">Kauppakeskuksissa ja tapahtumaloissa ilmoitusten ja opasteiden nopea päivittäminen on arkipäivää. Meiltä löytyy toimivat ratkaisut.</p>
+    <div class="product-list">
+
+      <!-- Tuote 1: Magneettikehykset -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-magnettikk">
+          <button class="carousel-prev" onclick="prevSlide('carousel-magnettikk')" aria-label="Edellinen kuva">&#8249;</button>
+          <img src="kuvat/magneettikauppa1.jpg" alt="Magneettikehys 1" class="carousel-slide active">
+          <img src="kuvat/magneettikauppa2.jpg" alt="Magneettikehys 2" class="carousel-slide">
+          <img src="kuvat/magneettikauppa3.jpg" alt="Magneettikehys 3" class="carousel-slide">
+          <button class="carousel-next" onclick="nextSlide('carousel-magnettikk')" aria-label="Seuraava kuva">&#8250;</button>
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-magnettikk',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-magnettikk',1)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-magnettikk',2)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Tärkein tuote</span>
+          <h3>Magneettikehykset</h3>
+          <p>Kauppakeskuksissa ja tapahtumaloissa tarvitaan jatkuvasti päivitettäviä ilmoituksia ja opasteita. Magneettikehykset ovat tähän täydellinen ratkaisu.</p>
+          <ul class="product-features">
+            <li>Kampanjailmoitukset ja tarjoukset</li>
+            <li>Tapahtumainfot ja ohjelmat</li>
+            <li>Oiva-raportit ja myyntiluvat</li>
+            <li>Ulko-ovet ja ikkunat</li>
+            <li>Vaihto nopeaa – ei tarvita erikoistyökaluja</li>
+            <li>Koot A6–A1 ja 50×70 cm</li>
+          </ul>
+          <a href="pdf/Magneettikehykset+mallikuvat.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 2: Vahva jojo -->
+      <article class="product-card">
+        <div class="product-img">
+          <img src="kuvat/jojo.jpg" alt="Vahva jojo" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Henkilökunta</span>
+          <h3>Vahva jojo avaimille ja kulkukorteille</h3>
+          <p>Kauppakeskusten henkilökunnalle kestävä ratkaisu kulkukorttien ja avainten kantamiseen päivän mittaan.</p>
+          <ul class="product-features">
+            <li>Magneettilukko kestää 300 g painon</li>
+            <li>Narun pituus 60 cm</li>
+            <li>Vyöklipsi- tai kaulanauhversio</li>
+          </ul>
+          <a href="pdf/Vahvajojo.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 3: Ripustustarra -->
+      <article class="product-card">
+        <div class="product-img">
+          <img src="kuvat/ripustustarra.jpg" alt="Ripustustarra" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Esillepano</span>
+          <h3>Ripustustarra</h3>
+          <p>3M ripustustarra tuotteiden ja materiaalien ripustamiseen ja esillepanoon tapahtumissa ja myymälöissä.</p>
+          <ul class="product-features">
+            <li>Kirkas teippi – pakkausmerkinnät näkyvät läpi</li>
+            <li>Kolmion muotoinen reikä kaksoiskoukkuihin</li>
+            <li>Valmiiksi leikatut arkit</li>
+          </ul>
+          <a href="pdf/Ripustustarra.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+</div>
+
+<section class="cta-banner">
+  <h2>Kiinnostuitko? Ota yhteyttä!</h2>
+  <p>Räätälöidään juuri teille sopivat tuotteet yhdessä.</p>
+  <a href="yhteys.html" class="btn-white">OTA YHTEYTTÄ</a>
+</section>
+
+<footer><div class="footer-inner">
+  <div><div class="footer-logo">PROMEGO</div><p class="footer-desc">Laatu ja toimivuus käsi kädessä. Logotuotteita eri toimialoille yli 25 vuoden kokemuksella.</p></div>
+  <div class="footer-col"><h4>Sivut</h4><a href="index.html">Etusivu</a><a href="tuotteet.html">Tuotteet</a><a href="toimialat.html">Toimialoittain</a><a href="yritys.html">Yritys</a><a href="yhteys.html">Yhteys</a></div>
+  <div class="footer-col"><h4>Yhteystiedot</h4><p>Jussi Lepistö</p><a href="tel:0408641384">040 864 1384</a><a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a></div>
+</div><div class="footer-bottom"><span>© 2025 Promego. Kaikki oikeudet pidätetään.</span><span>www.promego.fi</span></div></footer>
+
+<script>
+  function goToSlide(carouselId, index) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = carousel.querySelectorAll('.cdot');
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+  }
+
+  function nextSlide(carouselId) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    let current = 0;
+    slides.forEach((s, i) => { if (s.classList.contains('active')) current = i; });
+    goToSlide(carouselId, (current + 1) % slides.length);
+  }
+
+  function prevSlide(carouselId) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    let current = 0;
+    slides.forEach((s, i) => { if (s.classList.contains('active')) current = i; });
+    goToSlide(carouselId, (current - 1 + slides.length) % slides.length);
+  }
+</script>
+</body></html>

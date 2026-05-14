@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yhteys – Promego</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css" />
+  <style>html{visibility:hidden;opacity:0}</style>
+<script>
+  document.fonts.ready.then(function() {
+    document.documentElement.style.visibility = 'visible';
+    document.documentElement.style.opacity = '1';
+    document.documentElement.style.transition = 'opacity 0.1s ease';
+  });
+</script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">PROMEGO</a>
+    <nav>
+      <a href="index.html">Etusivu</a>
+      <a href="tuotteet.html">Tuotteet</a>
+      <a href="toimialat.html">Toimialoittain</a>
+      <a href="yritys.html">Yritys</a>
+      <a href="yhteys.html" class="active">Yhteys</a>
+    </nav>
+    <div class="header-contact">
+      <span>Ota yhteyttä</span>
+      <a href="tel:0408641384">040 864 1384</a>
+      <a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Etusivu</a><span>›</span>Yhteys
+    </div>
+    <div class="page-hero-tag">Ota yhteyttä</div>
+    <h1>📩 Otetaan yhteyttä!</h1>
+    <p>Onko sinulla kysyttävää tuotteista tai haluaisitko tilata? Jätä viesti niin vastaamme mahdollisimman pian.</p>
+  </div>
+</section>
+
+<div class="yhteys-layout">
+
+  <!-- LOMAKE -->
+  <section class="form-section">
+    <h2>Lähetä viesti</h2>
+    <p class="intro">Halutessasi voit lisätä lomakkeeseen tuotteen ja kappalemäärän. Vastaamme mahdollisimman pian.</p>
+
+    <div class="form-grid" id="contactForm">
+      <div class="form-group">
+        <label for="nimi">Nimi *</label>
+        <input type="text" id="nimi" name="nimi" placeholder="Etunimi Sukunimi" required />
+      </div>
+      <div class="form-group">
+        <label for="puhelin">Puhelin</label>
+        <input type="tel" id="puhelin" name="puhelin" placeholder="040 123 4567" />
+      </div>
+      <div class="form-group full">
+        <label for="email">Sähköposti *</label>
+        <input type="email" id="email" name="email" placeholder="sinä@yritys.fi" required />
+      </div>
+      <div class="form-group">
+        <label for="tuote">Tuote</label>
+        <input type="text" id="tuote" name="tuote" placeholder="Esim. Magneettikehykset A4" />
+      </div>
+      <div class="form-group">
+        <label for="maara">Kappalemäärä</label>
+        <input type="text" id="maara" name="maara" placeholder="Esim. 50 kpl" />
+      </div>
+      <div class="form-group full">
+        <label for="viesti">Viesti *</label>
+        <textarea id="viesti" name="viesti" placeholder="Kerro lisää tarpeistasi..." required></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="button" class="btn-submit" onclick="submitForm()">Lähetä viesti →</button>
+        <p class="form-note">* Pakolliset kentät. Tietojasi käsitellään tietosuojaselosteen mukaisesti.</p>
+      </div>
+      <div class="success-msg" id="successMsg">
+        ✅ Kiitos viestistäsi! Olemme sinuun yhteydessä mahdollisimman pian.
+      </div>
+    </div>
+  </section>
+
+  <!-- YHTEYSTIEDOT -->
+  <aside>
+    <div class="contact-card">
+      <div class="contact-card-header">
+        <h3>Yhteystiedot</h3>
+        <p>Vastaamme nopeasti – yleensä saman päivän aikana</p>
+      </div>
+      <div class="contact-card-body">
+        <div class="contact-person">
+          <div class="contact-avatar">JL</div>
+          <div class="contact-person-info">
+            <strong>Jussi Lepistö</strong>
+            <span>Promego Oy</span>
+          </div>
+        </div>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-text">
+              <span>Puhelin</span>
+              <a href="tel:0408641384">040 864 1384</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div class="contact-item-text">
+              <span>Sähköposti</span>
+              <a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text">
+              <span>Osoite</span>
+              <p>Niemelänkatu 17</p>
+              <p>92100 Raahe</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🏢</div>
+            <div class="contact-item-text">
+              <span>Y-tunnus</span>
+              <p>3340824-8</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🌐</div>
+            <div class="contact-item-text">
+              <span>Verkkosivut</span>
+              <a href="https://www.promego.fi">www.promego.fi</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card-footer">
+        💬 Voit myös soittaa suoraan – vastaamme mielellämme!
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">PROMEGO</div>
+      <p class="footer-desc">Laatu ja toimivuus käsi kädessä. Logotuotteita ja toimistotarvikkeita eri toimialoille yli 25 vuoden kokemuksella.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Sivut</h4>
+      <a href="index.html">Etusivu</a>
+      <a href="tuotteet.html">Tuotteet</a>
+      <a href="toimialat.html">Toimialoittain</a>
+      <a href="yritys.html">Yritys</a>
+      <a href="yhteys.html">Yhteys</a>
+    </div>
+    <div class="footer-col">
+      <h4>Yhteystiedot</h4>
+      <p>Jussi Lepistö</p>
+      <a href="tel:0408641384">040 864 1384</a>
+      <a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a>
+      <p>Niemelänkatu 17, 92100 Raahe</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Promego Oy. Y-tunnus: 3340824-8</span>
+    <span>www.promego.fi</span>
+  </div>
+</footer>
+
+<script>
+  function submitForm() {
+    const nimi = document.getElementById('nimi').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const viesti = document.getElementById('viesti').value.trim();
+    if (!nimi || !email || !viesti) {
+      alert('Täytä vaaditut kentät (nimi, sähköposti ja viesti).');
+      return;
+    }
+    // Tässä voidaan myöhemmin lisätä oikea lomakkeen lähetys (esim. Formspree, EmailJS tms.)
+    document.getElementById('successMsg').style.display = 'block';
+    document.querySelector('.btn-submit').disabled = true;
+    document.querySelector('.btn-submit').textContent = 'Lähetetty ✓';
+  }
+</script>
+
+</body>
+</html>

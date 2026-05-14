@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Rakennusalan toimijat – Promego</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--green:#3d7a4f;--green-dark:#2c5c39;--green-light:#eef6f1;--orange:#e8a020;--text:#1a1a1a;--muted:#555;--border:#d4e6da;--white:#ffffff}
+    body{font-family:'Barlow',sans-serif;color:var(--text);background:#f7faf8}
+    header{background:var(--white);border-bottom:3px solid var(--green);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+    .header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+    .logo{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:800;letter-spacing:.04em;color:var(--green-dark);text-decoration:none;flex-shrink:0}
+    nav{display:flex;gap:6px;align-items:center}
+    nav a{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text);text-decoration:none;padding:6px 14px;border-radius:4px;transition:background .18s,color .18s}
+    nav a:hover{background:var(--green-light);color:var(--green-dark)}
+    nav a.active{background:var(--green);color:var(--white)}
+    .header-contact{display:flex;flex-direction:column;align-items:flex-end;font-size:.82rem;color:var(--muted);flex-shrink:0}
+    .header-contact a{color:var(--green-dark);font-weight:600;font-size:1rem;text-decoration:none}
+    .page-hero{background:var(--green-dark);padding:56px 24px;position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.04)}
+    .page-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+    .breadcrumb{font-size:.82rem;color:rgba(255,255,255,.55);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+    .breadcrumb a{color:rgba(255,255,255,.65);text-decoration:none}
+    .breadcrumb span{color:rgba(255,255,255,.35)}
+    .page-hero-tag{display:inline-block;background:var(--orange);color:var(--white);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:14px}
+    .page-hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--white);letter-spacing:.02em;margin-bottom:14px;line-height:1.1}
+    .page-hero p{color:rgba(255,255,255,.8);font-size:1.05rem;font-weight:300;max-width:580px;line-height:1.65}
+    .content-layout{max-width:1200px;margin:0 auto;padding:56px 24px;display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
+    .toimiala-nav{position:sticky;top:90px}
+    .toimiala-nav h3{font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--border)}
+    .toimiala-nav a{display:block;font-size:.9rem;font-weight:500;color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:4px;border-left:3px solid transparent;transition:all .15s;line-height:1.3}
+    .toimiala-nav a:hover{background:var(--green-light);color:var(--green-dark);border-left-color:var(--green)}
+    .toimiala-nav a.current{background:var(--green-light);color:var(--green-dark);font-weight:600;border-left-color:var(--green)}
+    .tuotteet-content h2{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:800;color:var(--green-dark);letter-spacing:.02em;margin-bottom:8px}
+    .intro-text{color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:40px;max-width:680px}
+    .product-list{display:flex;flex-direction:column;gap:32px}
+    .product-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;display:grid;grid-template-columns:280px 1fr;transition:box-shadow .2s}
+    .product-card:hover{box-shadow:0 8px 32px rgba(61,122,79,.12)}
+    .product-img{background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:4rem;min-height:200px}
+    .product-body{padding:28px 32px}
+    .product-tag{display:inline-block;background:var(--green-light);color:var(--green-dark);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-bottom:10px}
+    .product-body h3{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;color:var(--text);letter-spacing:.02em;margin-bottom:10px}
+    .product-body p{color:var(--muted);font-size:.92rem;line-height:1.65;margin-bottom:16px}
+    .product-features{list-style:none;margin-bottom:20px}
+    .product-features li{font-size:.88rem;color:var(--text);padding:4px 0 4px 20px;position:relative;line-height:1.5}
+    .product-features li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+    .product-cta{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:var(--white);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.07em;text-transform:uppercase;padding:10px 22px;border-radius:4px;transition:background .18s}
+    .product-cta:hover{background:var(--green-dark)}
+    .cta-banner{background:var(--orange);padding:48px 24px;text-align:center}
+    .cta-banner h2{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:var(--white);margin-bottom:10px}
+    .cta-banner p{color:rgba(255,255,255,.9);margin-bottom:24px}
+    .btn-white{display:inline-block;background:var(--white);color:var(--orange);font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;padding:14px 36px;border-radius:4px;text-decoration:none;transition:transform .15s}
+    .btn-white:hover{transform:translateY(-2px)}
+    footer{background:#1a1a1a;color:rgba(255,255,255,.75);padding:48px 24px 28px}
+    .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-logo{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:800;color:var(--white);margin-bottom:12px}
+    .footer-desc{font-size:.88rem;line-height:1.7;color:rgba(255,255,255,.55);max-width:280px}
+    .footer-col h4{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);margin-bottom:16px}
+    .footer-col a,.footer-col p{display:block;color:rgba(255,255,255,.6);text-decoration:none;font-size:.88rem;line-height:2;transition:color .15s}
+    .footer-col a:hover{color:var(--white)}
+    .footer-bottom{max-width:1200px;margin:20px auto 0;font-size:.78rem;color:rgba(255,255,255,.3);display:flex;justify-content:space-between}
+    @media(max-width:900px){.content-layout{grid-template-columns:1fr}.toimiala-nav{position:static;display:flex;flex-wrap:wrap;gap:6px}.toimiala-nav h3{width:100%}}
+    @media(max-width:700px){.product-card{grid-template-columns:1fr}.header-inner{flex-wrap:wrap;height:auto;padding:12px 16px}.footer-inner{grid-template-columns:1fr;gap:24px}}
+  </style>
+</head>
+<body>
+<header><div class="header-inner">
+  <a href="index.html" class="logo">PROMEGO</a>
+  <nav><a href="index.html">Etusivu</a><a href="tuotteet.html">Tuotteet</a><a href="toimialat.html" class="active">Toimialoittain</a><a href="yritys.html">Yritys</a><a href="yhteys.html">Yhteys</a></nav>
+  <div class="header-contact"><span>Ota yhteyttä</span><a href="tel:0408641384">040 864 1384</a><a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a></div>
+</div></header>
+<section class="page-hero"><div class="page-hero-inner">
+  <div class="breadcrumb"><a href="index.html">Etusivu</a><span>›</span><a href="toimialat.html">Toimialoittain</a><span>›</span>Rakennusalan toimijat</div>
+  <div class="page-hero-tag">Toimiala</div>
+  <h1>🏗️ Rakennusalan toimijat</h1>
+  <p>Rakennusalan ammattilaisille toimitamme käytännöllisiä tuotteita työmaan arkeen ja edustukseen. Laadukkaat logotuotteet rakennusalan yrityksille.</p>
+</div></section>
+<div class="content-layout">
+  <aside class="toimiala-nav">
+    <h3>Toimialat</h3>
+    <a href="apteekit.html">💊 Apteekit</a>
+    <a href="koulut.html">🎓 Koulut ja oppilaitokset</a>
+    <a href="kaupat.html">🛒 Kaupat</a>
+    <a href="kirjastot.html">📚 Kirjastot</a>
+    <a href="kunnat.html" >🏛️ Kaupungit ja kunnat</a>
+    <a href="seurakunnat.html" >⛪ Seurakunnat</a>
+    <a href="metsaala.html" >🌲 Metsäalan toimijat</a>
+    <a href="rakennusala.html" class="current">🏗️ Rakennusalan toimijat</a>
+    <a href="kauppakeskukset.html" >🏢 Kauppakeskukset</a>
+  </aside>
+  <main class="tuotteet-content">
+    <h2>Tuotteet rakennusalan toimijoille</h2>
+    <p class="intro-text">Rakennusalalla tarvitaan kestäviä ja käytännöllisiä tuotteita. Meiltä löytyy ratkaisut niin työmaan arkeen kuin yrityksen markkinointiin.</p>
+    <div class="product-list"><article class="product-card"><div class="product-img">🧢</div><div class="product-body"><span class="product-tag">Yritystekstiili</span><h3>Logolippikset</h3><p>Laadukkaat logolippikset rakennusalan yritykselle. Käytännölliset ja siistit – sopivat työmaille ja asiakastilaisuuksiin.</p><ul class="product-features"><li>Kestävät materiaalit</li><li>Beat-S, Sandwich-S ja Paka -mallit</li><li>Brodeeraus sisältyy hintaan</li><li>Runsas värivalikoima</li></ul><a href="yhteys.html" class="product-cta">Kysy lisää →</a></div></article>
+<article class="product-card"><div class="product-img">🔌</div><div class="product-body"><span class="product-tag">Liikelahja</span><h3>Kolmihaarainen latauskaapeli</h3><p>Toimiva liikelahja asiakkaille ja yhteistyökumppaneille. Käytännöllinen ja kaikenikäisille sopiva.</p><ul class="product-features"><li>iPhone Lightning, USB-C ja Micro-USB</li><li>Punottu kestävä kaapeli</li><li>Logo laseroituna haaroituskohtaan</li></ul><a href="yhteys.html" class="product-cta">Kysy lisää →</a></div></article>
+<article class="product-card"><div class="product-img">✏️</div><div class="product-body"><span class="product-tag">Logotuote</span><h3>Logokynät</h3><p>Laadukkaat logokynät toimistoon ja asiakaspalveluun. Pitkäaikainen logonäkyvyys edullisesti.</p><ul class="product-features"><li>Sapphire pen – premium metallirunkoinen</li><li>Jakokynä – erinomainen hinta-laatu</li><li>Logo laseroimalla tai painamalla</li></ul><a href="yhteys.html" class="product-cta">Kysy lisää →</a></div></article>
+<article class="product-card"><div class="product-img">⌚</div><div class="product-body"><span class="product-tag">Premium liikelahja</span><h3>AARNI-kellot</h3><p>Arvokkaat puiset AARNI-kellot erottuvana liikelahjana tärkeille asiakkaille tai henkilökunnalle.</p><ul class="product-features"><li>Suomalaista puuta – uniikki jokaiselle</li><li>Sveitsiläinen tai japanilainen koneisto</li><li>Ympäristöystävällinen valinta</li></ul><a href="yhteys.html" class="product-cta">Kysy lisää →</a></div></article></div>
+  </main>
+</div>
+<section class="cta-banner">
+  <h2>Kiinnostuitko? Ota yhteyttä!</h2>
+  <p>Räätälöidään juuri teille sopivat tuotteet yhdessä.</p>
+  <a href="yhteys.html" class="btn-white">OTA YHTEYTTÄ</a>
+</section>
+<footer><div class="footer-inner">
+  <div><div class="footer-logo">PROMEGO</div><p class="footer-desc">Laatu ja toimivuus käsi kädessä. Logotuotteita eri toimialoille yli 25 vuoden kokemuksella.</p></div>
+  <div class="footer-col"><h4>Sivut</h4><a href="index.html">Etusivu</a><a href="tuotteet.html">Tuotteet</a><a href="toimialat.html">Toimialoittain</a><a href="yritys.html">Yritys</a><a href="yhteys.html">Yhteys</a></div>
+  <div class="footer-col"><h4>Yhteystiedot</h4><p>Jussi Lepistö</p><a href="tel:0408641384">040 864 1384</a><a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a></div>
+</div><div class="footer-bottom"><span>© 2025 Promego. Kaikki oikeudet pidätetään.</span><span>www.promego.fi</span></div></footer>
+</body></html>

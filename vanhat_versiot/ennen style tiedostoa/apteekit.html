@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apteekit – Promego</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #3d7a4f;
+      --green-dark:  #2c5c39;
+      --green-light: #eef6f1;
+      --orange:      #e8a020;
+      --text:        #1a1a1a;
+      --muted:       #555;
+      --border:      #d4e6da;
+      --white:       #ffffff;
+    }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      color: var(--text);
+      background: #f7faf8;
+    }
+
+    /* ── HEADER (sama kaikilla sivuilla) ── */
+    header {
+      background: var(--white);
+      border-bottom: 3px solid var(--green);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      color: var(--green-dark);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    nav {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    nav a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 4px;
+      transition: background .18s, color .18s;
+    }
+
+    nav a:hover { background: var(--green-light); color: var(--green-dark); }
+    nav a.active { background: var(--green); color: var(--white); }
+
+    .header-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: .82rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .header-contact a {
+      color: var(--green-dark);
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    /* ── PAGE HERO (toimialakohtainen) ── */
+    .page-hero {
+      background: var(--green-dark);
+      padding: 56px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.04);
+    }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      right: 80px;
+      bottom: -80px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.03);
+    }
+
+    .page-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Murupolku */
+    .breadcrumb {
+      font-size: .82rem;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .breadcrumb a {
+      color: rgba(255,255,255,.65);
+      text-decoration: none;
+      transition: color .15s;
+    }
+
+    .breadcrumb a:hover { color: var(--white); }
+    .breadcrumb span { color: rgba(255,255,255,.35); }
+
+    .page-hero-tag {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 14px;
+    }
+
+    .page-hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: .02em;
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
+
+    .page-hero p {
+      color: rgba(255,255,255,.8);
+      font-size: 1.05rem;
+      font-weight: 300;
+      max-width: 580px;
+      line-height: 1.65;
+    }
+
+    /* ── MUUT TOIMIALAT (sidebar nav) ── */
+    .content-layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 24px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .toimiala-nav {
+      position: sticky;
+      top: 90px;
+    }
+
+    .toimiala-nav h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .toimiala-nav a {
+      display: block;
+      font-size: .9rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      border-left: 3px solid transparent;
+      transition: all .15s;
+      line-height: 1.3;
+    }
+
+    .toimiala-nav a:hover {
+      background: var(--green-light);
+      color: var(--green-dark);
+      border-left-color: var(--green);
+    }
+
+    .toimiala-nav a.current {
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-weight: 600;
+      border-left-color: var(--green);
+    }
+
+    /* ── TUOTTEET SISÄLTÖ ── */
+    .tuotteet-content h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--green-dark);
+      letter-spacing: .02em;
+      margin-bottom: 8px;
+    }
+
+    .intro-text {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 680px;
+    }
+
+    /* Tuotekortti */
+    .product-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      transition: box-shadow .2s;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 8px 32px rgba(61,122,79,.12);
+    }
+
+    .product-img {
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      min-height: 200px;
+      color: var(--green);
+      /* Vaihda tämä oikeaan kuvaan: background-image: url('kuva.jpg'); background-size: cover; */
+    }
+
+    .product-body {
+      padding: 28px 32px;
+    }
+
+    .product-tag {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 10px;
+    }
+
+    .product-body h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: .02em;
+      margin-bottom: 10px;
+    }
+
+    .product-body p {
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .product-features {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .product-features li {
+      font-size: .88rem;
+      color: var(--text);
+      padding: 4px 0;
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .product-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    /* Asiakaspalaute */
+    .quote-block {
+      background: var(--green-light);
+      border-left: 4px solid var(--green);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+    }
+
+    .quote-block p {
+      font-style: italic;
+      color: var(--green-dark);
+      font-size: .88rem;
+      margin-bottom: 6px;
+    }
+
+    .quote-block cite {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--green);
+      font-style: normal;
+    }
+
+    .product-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: .95rem;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 4px;
+      transition: background .18s;
+    }
+
+    .product-cta:hover { background: var(--green-dark); }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--orange);
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .cta-banner p { color: rgba(255,255,255,.9); margin-bottom: 24px; }
+
+    .btn-white {
+      display: inline-block;
+      background: var(--white);
+      color: var(--orange);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a1a1a;
+      color: rgba(255,255,255,.75);
+      padding: 48px 24px 28px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer-desc {
+      font-size: .88rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,.55);
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-col a, .footer-col p {
+      display: block;
+      color: rgba(255,255,255,.6);
+      text-decoration: none;
+      font-size: .88rem;
+      line-height: 2;
+      transition: color .15s;
+    }
+
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 20px auto 0;
+      font-size: .78rem;
+      color: rgba(255,255,255,.3);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .content-layout { grid-template-columns: 1fr; }
+      .toimiala-nav { position: static; display: flex; flex-wrap: wrap; gap: 6px; }
+      .toimiala-nav h3 { width: 100%; }
+      .toimiala-nav a { border-left: none; border-bottom: 3px solid transparent; }
+      .toimiala-nav a.current { border-left: none; border-bottom-color: var(--green); }
+    }
+
+    @media (max-width: 700px) {
+      .product-card { grid-template-columns: 1fr; }
+      .product-img { min-height: 160px; }
+      .header-inner { flex-wrap: wrap; height: auto; padding: 12px 16px; }
+      nav { flex-wrap: wrap; gap: 4px; }
+      nav a { font-size: .82rem; padding: 5px 10px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    /* ── KARUSELLI ── */
+    .carousel {
+      position: relative;
+      padding: 0 !important;
+      background: var(--white);
+    }
+
+    .carousel-slide {
+      display: none;
+      width: 100%;
+      min-height: 200px;
+      object-fit: cover;
+    }
+
+    .carousel-slide.active { display: block; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 10;
+    }
+
+    .cdot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: rgba(44,92,57,.3);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background .2s;
+    }
+
+    .cdot.active { background: var(--green-dark); }
+
+    .product-pdf {
+      display: block;
+      width: fit-content;
+      background: var(--green-light);
+      color: var(--green-dark);
+      text-decoration: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: .9rem;
+      padding: 8px 16px;
+      border-radius: 4px;
+      border: 1.5px solid var(--border);
+      margin-bottom: 12px;
+      transition: background .18s;
+    }
+
+    .product-pdf:hover { background: var(--border); }
+
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">PROMEGO</a>
+    <nav>
+      <a href="index.html">Etusivu</a>
+      <a href="tuotteet.html">Tuotteet</a>
+      <a href="toimialat.html" class="active">Toimialoittain</a>
+      <a href="yritys.html">Yritys</a>
+      <a href="yhteys.html">Yhteys</a>
+    </nav>
+    <div class="header-contact">
+      <span>Ota yhteyttä</span>
+      <a href="tel:0408641384">040 864 1384</a>
+      <a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Etusivu</a>
+      <span>›</span>
+      <a href="toimialat.html">Toimialoittain</a>
+      <span>›</span>
+      Apteekit
+    </div>
+    <div class="page-hero-tag">Toimiala</div>
+    <h1>💊 Apteekit</h1>
+    <p>Olemme tehneet apteekkien kanssa yli 25 vuoden yhteistyötä. Moni asia on muuttunut apteekeissa vuosien varrella, ja mekin ollaan mukana muutoksessa.</p>
+  </div>
+</section>
+
+<!-- SISÄLTÖ -->
+<div class="content-layout">
+
+  <!-- Sivupalkki: muut toimialat -->
+  <aside class="toimiala-nav">
+    <h3>Toimialat</h3>
+    <a href="apteekit.html" class="current">💊 Apteekit</a>
+    <a href="koulut.html">🎓 Koulut ja oppilaitokset</a>
+    <a href="kaupat.html">🛒 Kaupat</a>
+    <a href="kirjastot.html">📚 Kirjastot</a>
+    <a href="kunnat.html">🏛️ Kaupungit ja kunnat</a>
+    <a href="seurakunnat.html">⛪ Seurakunnat</a>
+    <a href="metsaala.html">🌲 Metsäalan toimijat</a>
+    <a href="rakennusala.html">🏗️ Rakennusalan toimijat</a>
+    <a href="kauppakeskukset.html">🏢 Kauppakeskukset</a>
+  </aside>
+
+  <!-- Pääsisältö -->
+  <main class="tuotteet-content">
+    <h2>Tuotteet apteekeille</h2>
+    <p class="intro-text">
+      Olemme saaneet paljon tuoteideoita ja vinkkejä apteekkareilta ja provisoreilta. 
+      Tässä on valikoima eniten tykätyistä tuotteista apteekin arkeen.
+    </p>
+
+    <div class="product-list">
+
+      <!-- Tuote 1: Kassataskut -->
+      <article class="product-card">
+        <div class="product-img">
+          <img src="kuvat/Kassataskumallit.jpg" alt="Kassataskut A5" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Kotimainen tuote</span>
+          <h3>Kassataskut A5</h3>
+          <p>Tasku valmistetaan Suomessa ja on avainlipputuote. Kestävyyden ja toimivuuden kannalta huomattava parannus saadaan pienentämällä kulmataskua.</p>
+          <ul class="product-features">
+            <li>Koko 160 × 215 mm</li>
+            <li>Pahvikovike</li>
+            <li>Kulmatasku n. 110×110 mm</li>
+            <li>Mahdollista tehdä apteekin omalla logolla</li>
+          </ul>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 2: Magneettikehykset -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-magneetti">
+          <img src="kuvat/magneettikehys1.jpg" alt="Magneettikehys 1" class="carousel-slide active">
+          <img src="kuvat/magneettikehys2.jpg" alt="Magneettikehys 2" class="carousel-slide">
+          <img src="kuvat/magneettikehys3.jpg" alt="Magneettikehys 3" class="carousel-slide">
+          <img src="kuvat/magneettikehys4.jpg" alt="Magneettikehys 4" class="carousel-slide">
+          <img src="kuvat/magneettikehys5.jpg" alt="Magneettikehys 5" class="carousel-slide">
+          <img src="kuvat/magneettikehys6.jpg" alt="Magneettikehys 6" class="carousel-slide">
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-magneetti',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-magneetti',1)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-magneetti',2)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-magneetti',3)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-magneetti',4)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-magneetti',5)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Suosittu</span>
+          <h3>Magneettikehykset</h3>
+          <p>Monessa apteekissa on ilmoituksille ja tiedotteille digitaalisia näyttöjä, mutta joka paikassa näyttöjä ei voida käyttää. Meillä on tähän todella toimiva ratkaisu: itseliimautuvat magneettikehykset.</p>
+          <ul class="product-features">
+            <li>Tiedotteiden vaihto helppoa ja nopeaa</li>
+            <li>Nurkat eivät repsota pitkänkään ajan kuluttua</li>
+            <li>Toimii kaikilla tasaisilla pinnoilla</li>
+            <li>Lasipinnoilla voi ilmoittaa kahteen suuntaan</li>
+            <li>Helppo pitää siistinä – kestää pyyhkimistä</li>
+            <li>Koot A6–A1, myös apteekeissa tykätty 50×70 cm</li>
+          </ul>
+          <div class="quote-block">
+            <p>"Kehyksissä julisteet pysyvät ryhdikkäästi seinällä, eivätkä ala repsottamaan. Vahva suositus."</p>
+            <cite>– Kristiina Peräkorpi, apteekkari</cite>
+          </div>
+          <div class="quote-block">
+            <p>"Kehykset ovat toimineet hyvin, ilmoitus sisälle on todella helppo vaihtaa, ovat siistin näköiset, kulmat ei repsota."</p>
+            <cite>– Mikko Saarela, apteekkari</cite>
+          </div>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 3: Leimasimet -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-leimasin">
+          <img src="kuvat/leimasin1.jpg" alt="Leimasin 1" class="carousel-slide active">
+          <img src="kuvat/leimasin2.jpg" alt="Leimasin 2" class="carousel-slide">
+          <img src="kuvat/leimasin3.jpg" alt="Leimasin 3" class="carousel-slide">
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-leimasin',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-leimasin',1)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-leimasin',2)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Toimistotarvike</span>
+          <h3>Leimasimet</h3>
+          <p>Vaikka leimasimien käyttö on vähentynyt apteekeissa huippuvuosista, on edelleen tarvetta laadukkaille automaattileimasimille. Meiltä löytyy PVM-leimasimista keräilypassileimoihin kaikenlaiset leimasimet.</p>
+          <ul class="product-features">
+            <li>PVM-leimasimet</li>
+            <li>Keräilypassileimasimet</li>
+            <li>Laadukasta automaattileimasinjälkeä</li>
+          </ul>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 4: SafeCard -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-punkki">
+          <img src="kuvat/Punkinpoistaja1.jpg" alt="Punkinpoistaja 1" class="carousel-slide active">
+          <img src="kuvat/Punkinpoistaja2.jpg" alt="Punkinpoistaja 2" class="carousel-slide">
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-punkki',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-punkki',1)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Jakotuote</span>
+          <h3>SafeCard – Punkinpoistaja</h3>
+          <p>Pankkikortin kokoinen punkinpoistaja on hyödyllinen ja huomiota herättävä jakotuote apteekkien asiakkaille. Pitkäaikainen logonäkyvyys edulliseen hintaan.</p>
+          <ul class="product-features">
+            <li>Pankkikortin kokoinen – kulkee aina mukana</li>
+            <li>Pitkäaikainen logonäkyvyys</li>
+            <li>Kehitetty yhteistyössä punkkiasiantuntijoiden kanssa</li>
+            <li>Edullinen jakotuote</li>
+          </ul>
+          <a href="pdf/Punkinpoistaja_kesä2026.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+</div>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>Kiinnostuitko? Ota yhteyttä!</h2>
+  <p>Räätälöidään juuri teidän apteekkiin sopivat tuotteet yhdessä.</p>
+  <a href="yhteys.html" class="btn-white">OTA YHTEYTTÄ</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">PROMEGO</div>
+      <p class="footer-desc">Laatu ja toimivuus käsi kädessä. Logotuotteita ja toimistotarvikkeita eri toimialoille yli 25 vuoden kokemuksella.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Sivut</h4>
+      <a href="index.html">Etusivu</a>
+      <a href="tuotteet.html">Tuotteet</a>
+      <a href="toimialat.html">Toimialoittain</a>
+      <a href="yritys.html">Yritys</a>
+      <a href="yhteys.html">Yhteys</a>
+    </div>
+    <div class="footer-col">
+      <h4>Yhteystiedot</h4>
+      <p>Jussi Lepistö</p>
+      <a href="tel:0408641384">040 864 1384</a>
+      <a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a>
+      <a href="https://www.promego.fi">www.promego.fi</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Promego. Kaikki oikeudet pidätetään.</span>
+    <span>www.promego.fi</span>
+  </div>
+</footer>
+
+<script>
+  function goToSlide(carouselId, index) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = carousel.querySelectorAll('.cdot');
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+  }
+</script>
+</body>
+</html>

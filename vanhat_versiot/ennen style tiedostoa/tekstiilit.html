@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Yritystekstiilit – Promego</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--green:#3d7a4f;--green-dark:#2c5c39;--green-light:#eef6f1;--orange:#e8a020;--text:#1a1a1a;--muted:#555;--border:#d4e6da;--white:#ffffff}
+    body{font-family:"Barlow",sans-serif;color:var(--text);background:#f7faf8}
+    header{background:var(--white);border-bottom:3px solid var(--green);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+    .header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+    .logo{font-family:"Barlow Condensed",sans-serif;font-size:2.2rem;font-weight:800;letter-spacing:.04em;color:var(--green-dark);text-decoration:none;flex-shrink:0}
+    nav{display:flex;gap:6px}
+    nav a{font-family:"Barlow Condensed",sans-serif;font-size:1rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text);text-decoration:none;padding:6px 14px;border-radius:4px;transition:background .18s,color .18s}
+    nav a:hover{background:var(--green-light);color:var(--green-dark)}
+    nav a.active{background:var(--green);color:var(--white)}
+    .header-contact{display:flex;flex-direction:column;align-items:flex-end;font-size:.82rem;color:var(--muted);flex-shrink:0}
+    .header-contact a{color:var(--green-dark);font-weight:600;font-size:1rem;text-decoration:none}
+    .page-hero{background:var(--green-dark);padding:56px 24px;position:relative;overflow:hidden}
+    .page-hero::before{content:"";position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.04)}
+    .page-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+    .breadcrumb{font-size:.82rem;color:rgba(255,255,255,.55);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+    .breadcrumb a{color:rgba(255,255,255,.65);text-decoration:none}
+    .breadcrumb span{color:rgba(255,255,255,.35)}
+    .page-hero-tag{display:inline-block;background:var(--orange);color:var(--white);font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:14px}
+    .page-hero h1{font-family:"Barlow Condensed",sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--white);letter-spacing:.02em;margin-bottom:14px;line-height:1.1}
+    .page-hero p{color:rgba(255,255,255,.8);font-size:1.05rem;font-weight:300;max-width:580px;line-height:1.65}
+    .section{max-width:1200px;margin:0 auto;padding:56px 24px}
+    .section-title{margin-bottom:36px}
+    .section-title h2{font-family:"Barlow Condensed",sans-serif;font-size:1.8rem;font-weight:800;color:var(--green-dark);margin-bottom:8px}
+    .section-title p{color:var(--muted);font-size:.95rem;line-height:1.6;max-width:600px}
+    .product-list{display:flex;flex-direction:column;gap:28px}
+    .product-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;display:grid;grid-template-columns:260px 1fr;transition:box-shadow .2s}
+    .product-card:hover{box-shadow:0 8px 32px rgba(61,122,79,.12)}
+    .product-img{background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:3.5rem;min-height:190px}
+    .product-body{padding:24px 28px}
+    .product-tag{display:inline-block;background:var(--green-light);color:var(--green-dark);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-bottom:10px}
+    .product-body h3{font-family:"Barlow Condensed",sans-serif;font-size:1.4rem;font-weight:800;color:var(--text);letter-spacing:.02em;margin-bottom:8px}
+    .product-body p{color:var(--muted);font-size:.9rem;line-height:1.65;margin-bottom:14px}
+    .product-features{list-style:none;margin-bottom:18px}
+    .product-features li{font-size:.86rem;color:var(--text);padding:3px 0 3px 18px;position:relative;line-height:1.5}
+    .product-features li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+    .price-box{background:var(--green-light);border-radius:6px;padding:10px 14px;margin-bottom:16px;font-size:.82rem;color:var(--green-dark)}
+    .price-box strong{display:block;font-size:1rem;margin-bottom:2px}
+    .product-cta{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:var(--white);text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.07em;text-transform:uppercase;padding:10px 22px;border-radius:4px;transition:background .18s}
+    .product-cta:hover{background:var(--green-dark)}
+    .lippis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .lippis-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:box-shadow .2s,transform .15s}
+    .lippis-card:hover{box-shadow:0 8px 28px rgba(61,122,79,.13);transform:translateY(-3px)}
+    .lippis-img{background:var(--green-light);height:160px;display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+    .lippis-body{padding:20px}
+    .lippis-body h3{font-family:"Barlow Condensed",sans-serif;font-size:1.3rem;font-weight:800;color:var(--text);margin-bottom:8px}
+    .lippis-body p{font-size:.86rem;color:var(--muted);line-height:1.55;margin-bottom:12px}
+    .lippis-features{list-style:none;margin-bottom:14px}
+    .lippis-features li{font-size:.82rem;color:var(--text);padding:2px 0 2px 16px;position:relative}
+    .lippis-features li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+    .lippis-price{background:var(--green-light);border-radius:6px;padding:8px 12px;font-size:.8rem;color:var(--green-dark);margin-bottom:14px}
+    .lippis-price strong{display:block;font-weight:700}
+    .lippis-cta{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:var(--white);text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.07em;text-transform:uppercase;padding:8px 18px;border-radius:4px;transition:background .18s}
+    .lippis-cta:hover{background:var(--green-dark)}
+    .info-box{background:var(--green-dark);border-radius:10px;padding:28px;margin-bottom:40px;color:var(--white)}
+    .info-box h3{font-family:"Barlow Condensed",sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:10px}
+    .info-box p{font-size:.9rem;line-height:1.65;color:rgba(255,255,255,.8)}
+    .info-box a{color:var(--orange);font-weight:600;text-decoration:none}
+    .cta-banner{background:var(--orange);padding:48px 24px;text-align:center}
+    .cta-banner h2{font-family:"Barlow Condensed",sans-serif;font-size:2rem;font-weight:800;color:var(--white);margin-bottom:10px}
+    .cta-banner p{color:rgba(255,255,255,.9);margin-bottom:24px}
+    .btn-white{display:inline-block;background:var(--white);color:var(--orange);font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;padding:14px 36px;border-radius:4px;text-decoration:none;transition:transform .15s}
+    .btn-white:hover{transform:translateY(-2px)}
+    footer{background:#1a1a1a;color:rgba(255,255,255,.75);padding:48px 24px 28px}
+    .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-logo{font-family:"Barlow Condensed",sans-serif;font-size:1.8rem;font-weight:800;color:var(--white);margin-bottom:12px}
+    .footer-desc{font-size:.88rem;line-height:1.7;color:rgba(255,255,255,.55);max-width:280px}
+    .footer-col h4{font-family:"Barlow Condensed",sans-serif;font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);margin-bottom:16px}
+    .footer-col a,.footer-col p{display:block;color:rgba(255,255,255,.6);text-decoration:none;font-size:.88rem;line-height:2;transition:color .15s}
+    .footer-col a:hover{color:var(--white)}
+    .footer-bottom{max-width:1200px;margin:20px auto 0;font-size:.78rem;color:rgba(255,255,255,.3);display:flex;justify-content:space-between}
+    @media(max-width:900px){.lippis-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:700px){.product-card{grid-template-columns:1fr}.lippis-grid{grid-template-columns:1fr}.header-inner{flex-wrap:wrap;height:auto;padding:12px 16px}nav{flex-wrap:wrap;gap:4px}nav a{font-size:.82rem;padding:5px 10px}.footer-inner{grid-template-columns:1fr;gap:24px}}</style>
+</head>
+<body>
+<header><div class="header-inner">
+  <a href="index.html" class="logo">PROMEGO</a>
+  <nav><a href="index.html">Etusivu</a><a href="tuotteet.html" class="active">Tuotteet</a><a href="toimialat.html">Toimialoittain</a><a href="yritys.html">Yritys</a><a href="yhteys.html">Yhteys</a></nav>
+  <div class="header-contact"><span>Ota yhteyttä</span><a href="tel:0408641384">040 864 1384</a><a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a></div>
+</div></header>
+<section class="page-hero"><div class="page-hero-inner">
+  <div class="breadcrumb"><a href="index.html">Etusivu</a><span>›</span><a href="tuotteet.html">Tuotteet</a><span>›</span>Yritystekstiilit</div>
+  <div class="page-hero-tag">Yritystekstiilit</div>
+  <h1>👕 Yritystekstiilit ja logolippikset</h1>
+  <p>Olemme erikoistuneet tyylikkäisiin ja hyviin hinta-/laatusuhteeltaan oleviin logolippiksiin. Laajasta valikoimastamme löytyy jokaiselle sopiva malli.</p>
+</div></section>
+
+<div class="section">
+  <div class="info-box">
+    <h3>🛍️ Laaja tekstiilivalikoimamme verkossa</h3>
+    <p>TOP 3 lippistämme löydät alta. Koko laaja yritystekstiilivalikoimamme – hupparit, paidat, takit ja paljon muuta – löytyy verkkokaupastamme osoitteessa <a href="https://promego.skypro.fi/" target="_blank">promego.skypro.fi</a>. Ota yhteyttä niin kerromme lisää!</p>
+  </div>
+
+  <div class="section-title"><h2>TOP 3 lippistämme</h2><p>Nämä ovat suosituimmat mallit, joita toimitamme eniten yrityksille ympäri Suomen.</p></div>
+  <div class="lippis-grid">
+
+    <div class="lippis-card">
+      <div class="lippis-img">🧢</div>
+      <div class="lippis-body">
+        <span class="product-tag">Suosituin</span>
+        <h3>Liberty Sandwich-S</h3>
+        <p>Klassinen 6-paneelinen lippis joka sopii jokaiselle. Runsas värivalikoima, erinomainen hinta-laatu.</p>
+        <ul class="lippis-features">
+          <li>80% luomupuuvilla, 20% kierrätyspuuvilla</li>
+          <li>6-paneelinen, curved visor</li>
+          <li>One size – solkikiinnitys nepparilla</li>
+          <li>Runsas värivalikoima</li>
+          <li>Brodeeraus sisältyy hintaan</li>
+        </ul>
+        <div class="lippis-price"><strong>96 kpl 11,90 € | 144 kpl 10,90 € | 288 kpl 9,90 € +alv</strong>Aloituskulu +35 €/tilaus</div>
+        <a href="yhteys.html" class="lippis-cta">Kysy lisää →</a>
+      </div>
+    </div>
+
+    <div class="lippis-card">
+      <div class="lippis-img">🧢</div>
+      <div class="lippis-body">
+        <span class="product-tag">Ekologinen</span>
+        <h3>Beat-S</h3>
+        <p>Trendikäs 6-paneelinen mid visor -lippis 100% kierrätyspolyesterista. Global Recycled Standard -sertifioitu.</p>
+        <ul class="lippis-features">
+          <li>100% kierrätyspolyesteria (GRS-sertifioitu)</li>
+          <li>6-paneelinen mid visor</li>
+          <li>Recycled snapback closure</li>
+          <li>10 värivaihtoehtoa</li>
+          <li>Pienempi ympäristökuorma: -23% CO₂</li>
+        </ul>
+        <div class="lippis-price"><strong>Kysy tarjousta määräsi mukaan</strong>Brodeeraus sisältyy hintaan</div>
+        <a href="yhteys.html" class="lippis-cta">Kysy lisää →</a>
+      </div>
+    </div>
+
+    <div class="lippis-card">
+      <div class="lippis-img">🧢</div>
+      <div class="lippis-body">
+        <span class="product-tag">Uutuus</span>
+        <h3>Paka</h3>
+        <p>Trendikäs 5-paneelinen lippis tvillikankaasta. Lipan juuressa rope-tyylinen koristenauha erottaa muista.</p>
+        <ul class="lippis-features">
+          <li>100% kierrätyspolyesteria</li>
+          <li>5-paneelinen, curved visor</li>
+          <li>Lipan juuressa rope-koristenauha</li>
+          <li>4 värivaihtoehtoa</li>
+          <li>Pienempi ympäristökuorma: -19% CO₂</li>
+        </ul>
+        <div class="lippis-price"><strong>Kysy tarjousta määräsi mukaan</strong>Brodeeraus sisältyy hintaan</div>
+        <a href="yhteys.html" class="lippis-cta">Kysy lisää →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<section class="cta-banner"><h2>Kiinnostuitko? Ota yhteyttä!</h2><p>Räätälöidään juuri teille sopivat tuotteet yhdessä.</p><a href="yhteys.html" class="btn-white">OTA YHTEYTTÄ</a></section>
+<footer><div class="footer-inner">
+  <div><div class="footer-logo">PROMEGO</div><p class="footer-desc">Laatu ja toimivuus käsi kädessä. Logotuotteita ja toimistotarvikkeita eri toimialoille yli 25 vuoden kokemuksella.</p></div>
+  <div class="footer-col"><h4>Sivut</h4><a href="index.html">Etusivu</a><a href="tuotteet.html">Tuotteet</a><a href="toimialat.html">Toimialoittain</a><a href="yritys.html">Yritys</a><a href="yhteys.html">Yhteys</a></div>
+  <div class="footer-col"><h4>Yhteystiedot</h4><p>Jussi Lepistö</p><a href="tel:0408641384">040 864 1384</a><a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a><p>Niemelänkatu 17, 92100 Raahe</p></div>
+</div><div class="footer-bottom"><span>© 2025 Promego Oy. Y-tunnus: 3340824-8</span><span>www.promego.fi</span></div></footer>
+</body></html>

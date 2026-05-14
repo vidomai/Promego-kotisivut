@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yritys – Promego</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #3d7a4f; --green-dark: #2c5c39; --green-light: #eef6f1;
+      --orange: #e8a020; --text: #1a1a1a; --muted: #555; --border: #d4e6da; --white: #ffffff;
+    }
+    body { font-family: 'Barlow', sans-serif; color: var(--text); background: #f7faf8; }
+
+    header { background: var(--white); border-bottom: 3px solid var(--green); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,.07); }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 24px; }
+    .logo { font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 800; letter-spacing: .04em; color: var(--green-dark); text-decoration: none; flex-shrink: 0; }
+    nav { display: flex; gap: 6px; align-items: center; }
+    nav a { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text); text-decoration: none; padding: 6px 14px; border-radius: 4px; transition: background .18s, color .18s; }
+    nav a:hover { background: var(--green-light); color: var(--green-dark); }
+    nav a.active { background: var(--green); color: var(--white); }
+    .header-contact { display: flex; flex-direction: column; align-items: flex-end; font-size: .82rem; color: var(--muted); flex-shrink: 0; }
+    .header-contact a { color: var(--green-dark); font-weight: 600; font-size: 1rem; text-decoration: none; }
+
+    .page-hero { background: var(--green-dark); padding: 72px 24px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; right: -60px; top: -60px; width: 320px; height: 320px; border-radius: 50%; background: rgba(255,255,255,.04); }
+    .page-hero::after { content: ''; position: absolute; left: 40%; bottom: -100px; width: 260px; height: 260px; border-radius: 50%; background: rgba(255,255,255,.03); }
+    .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .breadcrumb { font-size: .82rem; color: rgba(255,255,255,.55); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: rgba(255,255,255,.65); text-decoration: none; }
+    .breadcrumb span { color: rgba(255,255,255,.35); }
+    .page-hero-tag { display: inline-block; background: var(--orange); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; margin-bottom: 14px; }
+    .page-hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; color: var(--white); letter-spacing: .02em; margin-bottom: 16px; line-height: 1.08; max-width: 700px; }
+    .page-hero p { color: rgba(255,255,255,.8); font-size: 1.1rem; font-weight: 300; max-width: 560px; line-height: 1.65; }
+
+    /* ── LUVUT BANNERI ── */
+    .stats-bar {
+      background: var(--orange);
+      padding: 0;
+    }
+
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-item {
+      padding: 32px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,.2);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: .88rem;
+      color: rgba(255,255,255,.85);
+      font-weight: 500;
+    }
+
+    /* ── PÄÄSISÄLTÖ ── */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 24px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 72px;
+      align-items: start;
+    }
+
+    /* Tarina */
+    .story h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--green-dark);
+      margin-bottom: 20px;
+      letter-spacing: .02em;
+    }
+
+    .story p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .story p strong { color: var(--text); font-weight: 600; }
+
+    /* Arvot */
+    .values {
+      margin-top: 48px;
+    }
+
+    .values h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--green-dark);
+      margin-bottom: 24px;
+    }
+
+    .value-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .value-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .value-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .value-text h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .value-text p {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Sidebar */
+    .sidebar { display: flex; flex-direction: column; gap: 24px; }
+
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .info-card-header {
+      background: var(--green-dark);
+      padding: 18px 22px;
+    }
+
+    .info-card-header h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: .04em;
+    }
+
+    .info-card-body { padding: 22px; }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .9rem;
+      gap: 12px;
+    }
+
+    .info-row:last-child { border-bottom: none; }
+
+    .info-row .label {
+      color: var(--muted);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .info-row .value {
+      color: var(--text);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .info-row .value a {
+      color: var(--green-dark);
+      text-decoration: none;
+    }
+
+    /* Toimialat lista */
+    .toimialat-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 22px;
+    }
+
+    .toimiala-tag {
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background .15s;
+    }
+
+    .toimiala-tag:hover { background: var(--green); color: var(--white); }
+
+    /* CTA */
+    .cta-card {
+      background: var(--green-dark);
+      border-radius: 10px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+
+    .cta-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .cta-card p {
+      color: rgba(255,255,255,.75);
+      font-size: .88rem;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .btn-orange {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background .18s;
+    }
+
+    .btn-orange:hover { background: #c8880f; }
+
+    /* ── TOIMIALAT OSIO ── */
+    .toimialat-section {
+      background: var(--green-dark);
+      padding: 64px 24px;
+    }
+
+    .toimialat-inner { max-width: 1200px; margin: 0 auto; }
+
+    .toimialat-section .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .toimialat-section .section-title h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .toimialat-section .section-title p { color: rgba(255,255,255,.7); }
+
+    .toimiala-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .toimiala-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(255,255,255,.1);
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 18px 14px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,.15);
+      text-align: center;
+      transition: background .18s, transform .15s;
+    }
+
+    .toimiala-btn:hover { background: rgba(255,255,255,.2); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer { background: #1a1a1a; color: rgba(255,255,255,.75); padding: 48px 24px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+    .footer-desc { font-size: .88rem; line-height: 1.7; color: rgba(255,255,255,.55); max-width: 280px; }
+    .footer-col h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--white); margin-bottom: 16px; }
+    .footer-col a, .footer-col p { display: block; color: rgba(255,255,255,.6); text-decoration: none; font-size: .88rem; line-height: 2; transition: color .15s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { max-width: 1200px; margin: 20px auto 0; font-size: .78rem; color: rgba(255,255,255,.3); display: flex; justify-content: space-between; }
+
+    @media (max-width: 900px) {
+      .main-content { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.2); }
+      .toimiala-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .header-inner { flex-wrap: wrap; height: auto; padding: 12px 16px; }
+      nav { flex-wrap: wrap; gap: 4px; }
+      nav a { font-size: .82rem; padding: 5px 10px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+      .toimiala-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">PROMEGO</a>
+    <nav>
+      <a href="index.html">Etusivu</a>
+      <a href="tuotteet.html">Tuotteet</a>
+      <a href="toimialat.html">Toimialoittain</a>
+      <a href="yritys.html" class="active">Yritys</a>
+      <a href="yhteys.html">Yhteys</a>
+    </nav>
+    <div class="header-contact">
+      <span>Ota yhteyttä</span>
+      <a href="tel:0408641384">040 864 1384</a>
+      <a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Etusivu</a><span>›</span>Yritys
+    </div>
+    <div class="page-hero-tag">Promego Oy</div>
+    <h1>Laatu ja toimivuus käsi kädessä – jo yli 25 vuoden ajan</h1>
+    <p>Mainosta brändiäsi näkyvästi laadukkailla ja ekologisesti kestävillä tuotteilla. Ideoimme juuri teille sopivat ratkaisut.</p>
+  </div>
+</section>
+
+<!-- LUVUT -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-number">25+</div>
+      <div class="stat-label">Vuotta kokemusta</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">9</div>
+      <div class="stat-label">Toimialaa palvelussa</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Asiakaslähtöinen toiminta</div>
+    </div>
+  </div>
+</div>
+
+<!-- PÄÄSISÄLTÖ -->
+<div class="main-content">
+
+  <div>
+    <!-- Tarina -->
+    <section class="story">
+      <h2>Keitä me olemme?</h2>
+      <p>
+        Promego Oy on raahalainen logotuote- ja toimistotarvikealan yritys, joka on palvellut asiakkaitaan
+        <strong>yli 25 vuoden ajan</strong>. Olemme erikoistuneet laadukkaiden ja toimivien tuotteiden
+        toimittamiseen eri toimialoille – apteekeista metsäalan yrityksiin, kouluista kuntiin.
+      </p>
+      <p>
+        Yrityksen takana on <strong>Jussi Lepistö</strong>, joka tuntee asiakkaansa henkilökohtaisesti.
+        Vuosien varrella olemme keränneet valtavan määrän tietoa siitä, mitkä tuotteet todella toimivat
+        kullakin toimialalla – ja tätä tietoa hyödynnämme jokaisen asiakkaan kanssa.
+      </p>
+      <p>
+        Olemme tehneet yhteistyötä koko Suomen alueella <strong>Hangosta Utsjoelle</strong>. Asiakkainamme
+        on niin pieniä kyläkauppoja kuin suuria kauppakeskuksia, yksittäisiä apteekkeja kuin kokonaisia
+        kuntia. Jokainen asiakas saa saman huolellisen palvelun.
+      </p>
+      <p>
+        Uskomme, että parhaat tuotteet syntyvät yhteistyössä asiakkaan kanssa. Siksi kuuntelemme tarkasti
+        tarpeita ja ideoimme yhdessä juuri teille sopivat ratkaisut – ei vain myydä tuotteita hyllystä.
+      </p>
+    </section>
+
+    <!-- Arvot -->
+    <section class="values">
+      <h2>Miksi Promego?</h2>
+      <div class="value-list">
+        <div class="value-item">
+          <div class="value-icon">🏆</div>
+          <div class="value-text">
+            <h3>Laatu ennen kaikkea</h3>
+            <p>Valitsemme valikoimaamme vain tuotteet, joihin luotamme itse. Kotimaisia tuotteita aina kun mahdollista.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">🎯</div>
+          <div class="value-text">
+            <h3>Toimialakohtainen osaaminen</h3>
+            <p>25 vuoden kokemus tarkoittaa, että tiedämme mitkä tuotteet toimivat apteekissa, koulussa tai kauppakeskuksessa.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">🤝</div>
+          <div class="value-text">
+            <h3>Henkilökohtainen palvelu</h3>
+            <p>Et ole vain asiakasnumero. Tunnemme asiakkaamme ja heidän tarpeensa – ja olemme aina tavoitettavissa.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">🌱</div>
+          <div class="value-text">
+            <h3>Ekologinen vastuu</h3>
+            <p>Tarjoamme laadukkaita ja ekologisesti kestäviä tuotteita. Kierrätysmateriaalit ovat osa valikoimaamme.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">💡</div>
+          <div class="value-text">
+            <h3>Ideointi kuuluu palveluun</h3>
+            <p>Ei hätää, vaikka et tietäisi mitä haluaa. Ideoimme yhdessä juuri teille sopivat tuotteet annettujen tietojen pohjalta.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- Yritystiedot -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <h3>🏢 Yritystiedot</h3>
+      </div>
+      <div class="info-card-body">
+        <div class="info-row">
+          <span class="label">Yritys</span>
+          <span class="value">Promego Oy</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Y-tunnus</span>
+          <span class="value">3340824-8</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Osoite</span>
+          <span class="value">Niemelänkatu 17<br>92100 Raahe</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Puhelin</span>
+          <span class="value"><a href="tel:0408641384">040 864 1384</a></span>
+        </div>
+        <div class="info-row">
+          <span class="label">Sähköposti</span>
+          <span class="value"><a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@<br>promego.fi</a></span>
+        </div>
+        <div class="info-row">
+          <span class="label">Verkkosivut</span>
+          <span class="value"><a href="https://www.promego.fi">www.promego.fi</a></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toimialat -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <h3>🎯 Palvelemme näitä toimialoja</h3>
+      </div>
+      <div class="toimialat-list">
+        <a href="apteekit.html" class="toimiala-tag">💊 Apteekit</a>
+        <a href="koulut.html" class="toimiala-tag">🎓 Koulut</a>
+        <a href="kaupat.html" class="toimiala-tag">🛒 Kaupat</a>
+        <a href="kirjastot.html" class="toimiala-tag">📚 Kirjastot</a>
+        <a href="kunnat.html" class="toimiala-tag">🏛️ Kunnat</a>
+        <a href="seurakunnat.html" class="toimiala-tag">⛪ Seurakunnat</a>
+        <a href="metsaala.html" class="toimiala-tag">🌲 Metsäala</a>
+        <a href="rakennusala.html" class="toimiala-tag">🏗️ Rakennusala</a>
+        <a href="kauppakeskukset.html" class="toimiala-tag">🏢 Kauppakeskukset</a>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-card">
+      <h3>Otetaan yhteyttä!</h3>
+      <p>Kerro tarpeistasi ja ideoidaan yhdessä juuri teille sopivat tuotteet.</p>
+      <a href="yhteys.html" class="btn-orange">OTA YHTEYTTÄ →</a>
+    </div>
+
+  </aside>
+</div>
+
+<!-- TOIMIALAT OSIO -->
+<section class="toimialat-section">
+  <div class="toimialat-inner">
+    <div class="section-title">
+      <h2>Tutustu toimialoittain</h2>
+      <p>Löydä juuri teidän alallenne sopivat täsmätuotteet.</p>
+    </div>
+    <div class="toimiala-grid">
+      <a href="apteekit.html" class="toimiala-btn">💊 Apteekit</a>
+      <a href="koulut.html" class="toimiala-btn">🎓 Koulut ja oppilaitokset</a>
+      <a href="kaupat.html" class="toimiala-btn">🛒 Kaupat</a>
+      <a href="kirjastot.html" class="toimiala-btn">📚 Kirjastot</a>
+      <a href="kunnat.html" class="toimiala-btn">🏛️ Kaupungit ja kunnat</a>
+      <a href="seurakunnat.html" class="toimiala-btn">⛪ Seurakunnat</a>
+      <a href="metsaala.html" class="toimiala-btn">🌲 Metsäalan toimijat</a>
+      <a href="rakennusala.html" class="toimiala-btn">🏗️ Rakennusalan toimijat</a>
+      <a href="kauppakeskukset.html" class="toimiala-btn">🏢 Kauppakeskukset</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">PROMEGO</div>
+      <p class="footer-desc">Laatu ja toimivuus käsi kädessä. Logotuotteita ja toimistotarvikkeita eri toimialoille yli 25 vuoden kokemuksella.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Sivut</h4>
+      <a href="index.html">Etusivu</a>
+      <a href="tuotteet.html">Tuotteet</a>
+      <a href="toimialat.html">Toimialoittain</a>
+      <a href="yritys.html">Yritys</a>
+      <a href="yhteys.html">Yhteys</a>
+    </div>
+    <div class="footer-col">
+      <h4>Yhteystiedot</h4>
+      <p>Jussi Lepistö</p>
+      <a href="tel:0408641384">040 864 1384</a>
+      <a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a>
+      <p>Niemelänkatu 17, 92100 Raahe</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Promego Oy. Y-tunnus: 3340824-8</span>
+    <span>www.promego.fi</span>
+  </div>
+</footer>
+
+</body>
+</html>

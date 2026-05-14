@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promego – Logotuotteita toimialallesi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css" />
+  <style>html{visibility:hidden;opacity:0}</style>
+<script>
+  document.fonts.ready.then(function() {
+    document.documentElement.style.visibility = 'visible';
+    document.documentElement.style.opacity = '1';
+    document.documentElement.style.transition = 'opacity 0.1s ease';
+  });
+</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">PROMEGO</a>
+    <nav>
+      <a href="index.html" class="active">Etusivu</a>
+      <a href="tuotteet.html">Tuotteet</a>
+      <a href="toimialat.html">Toimialoittain</a>
+      <a href="yritys.html">Yritys</a>
+      <a href="yhteys.html">Yhteys</a>
+    </nav>
+    <div class="header-contact">
+      <span>Ota yhteyttä</span>
+      <a href="tel:0408641384">040 864 1384</a>
+      <a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Yli 25 vuoden kokemus</span>
+    <h1>Logotuotteita, jotka saavat asiakkaasi hymyilemään</h1>
+    <p>Laatu ja toimivuus käsi kädessä – löydä täsmätuotteita toimialallesi Promegolta.</p>
+    <a href="yhteys.html" class="hero-cta">
+      Ota yhteyttä →
+    </a>
+  </div>
+  <div class="hero-dots">
+    <button class="dot active" onclick="goToSlide(0)"></button>
+    <button class="dot" onclick="goToSlide(1)"></button>
+    <button class="dot" onclick="goToSlide(2)"></button>
+  </div>
+</section>
+
+<!-- TOIMIALAT -->
+<section class="toimialat-section">
+  <div class="section-title">
+    <h2>Tuotteet toimialoittain</h2>
+    <p>Laatu ja toimivuus käsi kädessä – löydä täsmätuotteita toimialallesi Promegolta.</p>
+  </div>
+  <div class="toimiala-grid">
+    <a href="apteekit.html" class="toimiala-btn">💊 Apteekit</a>
+    <a href="koulut.html" class="toimiala-btn">🎓 Koulut ja oppilaitokset</a>
+    <a href="kaupat.html" class="toimiala-btn">🛒 Kaupat</a>
+    <a href="kirjastot.html" class="toimiala-btn">📚 Kirjastot</a>
+    <a href="kunnat.html" class="toimiala-btn">🏛️ Kaupungit ja kunnat</a>
+    <a href="seurakunnat.html" class="toimiala-btn">⛪ Seurakunnat</a>
+    <a href="metsaala.html" class="toimiala-btn">🌲 Metsäalan toimijat</a>
+    <a href="rakennusala.html" class="toimiala-btn">🏗️ Rakennusalan toimijat</a>
+    <a href="kauppakeskukset.html" class="toimiala-btn">🏢 Kauppakeskukset ja tapahtumatalot</a>
+  </div>
+</section>
+
+<!-- TUOTTEET -->
+<section class="tuotteet-section">
+  <div class="tuotteet-inner">
+    <div class="section-title">
+      <h2>Tuotteemme</h2>
+      <p>Promego logotuotteita, jotka saavat asiakkaasi hymyilemään – eikä vain pakettia avatessaan.</p>
+    </div>
+    <div class="tuote-grid">
+      <a href="tekstiilit.html" class="tuote-card">
+        <span class="tuote-icon">👕</span>
+        <h3>Yritystekstiilit</h3>
+        <p>Laadukkaat logolippikset ja yritystekstiilit. Pehmeät paketit asiakkaillesi.</p>
+      </a>
+      <a href="liikelahjat.html" class="tuote-card">
+        <span class="tuote-icon">🎁</span>
+        <h3>Liikelahjat</h3>
+        <p>Kovat paketit – laadukkaat liikelahjat, jotka jäävät mieleen. AARNI-kellot, logokynät ja paljon muuta.</p>
+      </a>
+      <a href="yhteys.html" class="tuote-card">
+        <span class="tuote-icon">📩</span>
+        <h3>Kiinnostuitko?</h3>
+        <p>Ota yhteyttä ja kerro tarpeistasi. Löydämme yhdessä parhaat tuotteet juuri teille.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>Kiinnostuitko? Ota yhteyttä!</h2>
+  <p>Räätälöidään juuri teidän toimialalle sopivat tuotteet yhdessä.</p>
+  <a href="yhteys.html" class="btn-white">OTA YHTEYTTÄ</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">PROMEGO</div>
+      <p class="footer-desc">Laatu ja toimivuus käsi kädessä. Logotuotteita ja toimistotarvikkeita eri toimialoille yli 25 vuoden kokemuksella.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Sivut</h4>
+      <a href="index.html">Etusivu</a>
+      <a href="tuotteet.html">Tuotteet</a>
+      <a href="toimialat.html">Toimialoittain</a>
+      <a href="yritys.html">Yritys</a>
+      <a href="yhteys.html">Yhteys</a>
+    </div>
+    <div class="footer-col">
+      <h4>Yhteystiedot</h4>
+      <p>Jussi Lepistö</p>
+      <a href="tel:0408641384">040 864 1384</a>
+      <a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a>
+      <a href="https://www.promego.fi">www.promego.fi</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Promego. Kaikki oikeudet pidätetään.</span>
+    <span>www.promego.fi</span>
+  </div>
+</footer>
+
+<script>
+  // Slideshow
+  let current = 0;
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.dot');
+
+  function goToSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  setInterval(() => {
+    goToSlide((current + 1) % slides.length);
+  }, 4500);
+</script>
+
+</body>
+</html>

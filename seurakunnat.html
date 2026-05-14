@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Seurakunnat – Promego</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>html{visibility:hidden;opacity:0}</style>
+<script>
+  document.fonts.ready.then(function() {
+    document.documentElement.style.visibility = 'visible';
+    document.documentElement.style.opacity = '1';
+    document.documentElement.style.transition = 'opacity 0.1s ease';
+  });
+</script>
+</head>
+<body>
+<header><div class="header-inner">
+  <a href="index.html" class="logo">PROMEGO</a>
+  <nav>
+    <a href="index.html">Etusivu</a><a href="tuotteet.html">Tuotteet</a>
+    <a href="toimialat.html" class="active">Toimialoittain</a>
+    <a href="yritys.html">Yritys</a><a href="yhteys.html">Yhteys</a>
+  </nav>
+  <div class="header-contact"><span>Ota yhteyttä</span><a href="tel:0408641384">040 864 1384</a><a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a></div>
+</div></header>
+
+<section class="page-hero"><div class="page-hero-inner">
+  <div class="breadcrumb"><a href="index.html">Etusivu</a><span>›</span><a href="toimialat.html">Toimialoittain</a><span>›</span>Seurakunnat</div>
+  <div class="page-hero-tag">Toimiala</div>
+  <h1>⛪ Seurakunnat</h1>
+  <p>Monet seurakunnat tuntevat meidät leimasintoimittajana, mutta toimitamme seurakuntiin monenlaisia muitakin tuotteita seurakuntaelämän tarpeisiin.</p>
+</div></section>
+
+<div class="content-layout">
+  <aside class="toimiala-nav">
+    <h3>Toimialat</h3>
+    <a href="apteekit.html">💊 Apteekit</a>
+    <a href="koulut.html">🎓 Koulut ja oppilaitokset</a>
+    <a href="kaupat.html">🛒 Kaupat</a>
+    <a href="kirjastot.html">📚 Kirjastot</a>
+    <a href="kunnat.html">🏛️ Kaupungit ja kunnat</a>
+    <a href="seurakunnat.html" class="current">⛪ Seurakunnat</a>
+    <a href="metsaala.html">🌲 Metsäalan toimijat</a>
+    <a href="rakennusala.html">🏗️ Rakennusalan toimijat</a>
+    <a href="kauppakeskukset.html">🏢 Kauppakeskukset</a>
+  </aside>
+  <main class="tuotteet-content">
+    <h2>Tuotteet seurakunnille</h2>
+    <p class="intro-text">Seurakunnille toimitamme tuotteita niin toimiston arkeen kuin tapahtumiin ja kesätoimintaan. Tässä muutamia esimerkkejä.</p>
+    <div class="product-list">
+
+      <!-- Tuote 1: Leimasimet -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-leimasinseura">
+          <button class="carousel-prev" onclick="prevSlide('carousel-leimasinseura')" aria-label="Edellinen kuva">&#8249;</button>
+          <img src="kuvat/leimasin1.jpg" alt="Leimasin 1" class="carousel-slide active">
+          <img src="kuvat/leimasin2.jpg" alt="Leimasin 2" class="carousel-slide">
+          <img src="kuvat/leimasin3.jpg" alt="Leimasin 3" class="carousel-slide">
+          <button class="carousel-next" onclick="nextSlide('carousel-leimasinseura')" aria-label="Seuraava kuva">&#8250;</button>
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-leimasinseura',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-leimasinseura',1)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-leimasinseura',2)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Toimistotarvike</span>
+          <h3>Leimasimet</h3>
+          <p>Toimitamme seurakunnille laadukkaita automaattileimasimia viralliseen käyttöön.</p>
+          <ul class="product-features">
+            <li>Sinettileimasimet</li>
+            <li>Nimenselvennys- ja allekirjoitusleimasimet</li>
+            <li>Terävä ja selkeä leimasinjälki</li>
+          </ul>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 2: SafeCard -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-punkki-seura">
+          <button class="carousel-prev" onclick="prevSlide('carousel-punkki-seura')" aria-label="Edellinen kuva">&#8249;</button>
+          <img src="kuvat/Punkipoistaja11.jpg" alt="Punkinpoistaja 1" class="carousel-slide active">
+          <img src="kuvat/Punkipoistaja22.jpg" alt="Punkinpoistaja 2" class="carousel-slide">
+          <button class="carousel-next" onclick="nextSlide('carousel-punkki-seura')" aria-label="Seuraava kuva">&#8250;</button>
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-punkki-seura',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-punkki-seura',1)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Kesätoiminta</span>
+          <h3>SafeCard – Punkinpoistaja</h3>
+          <p>Erinomainen jakotuote kesätyöntekijöille ja retkeilijöille. Pankkikortin kokoinen, kulkee aina mukana.</p>
+          <ul class="product-features">
+            <li>Hyödyllinen ja huomiota herättävä</li>
+            <li>Seurakunnan logolla varustettuna</li>
+            <li>Pitkäaikainen logonäkyvyys</li>
+            <li>Edullinen</li>
+          </ul>
+          <a href="pdf/Punkinpoistaja_kesä2026.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 3: RPET Juomapullo -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-juomapullo">
+          <button class="carousel-prev" onclick="prevSlide('carousel-juomapullo')" aria-label="Edellinen kuva">&#8249;</button>
+          <img src="kuvat/Juomapullo1.jpg" alt="Juomapullo 1" class="carousel-slide active">
+          <img src="kuvat/Juomapullo2.jpg" alt="Juomapullo 2" class="carousel-slide">
+          <button class="carousel-next" onclick="nextSlide('carousel-juomapullo')" aria-label="Seuraava kuva">&#8250;</button>
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-juomapullo',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-juomapullo',1)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Tapahtuma</span>
+          <h3>RPET Juomapullo</h3>
+          <p>Ympäristöystävällinen juomapullo seurakunnan logolla. Loistava lahja leiriläisille ja tapahtumiin.</p>
+          <ul class="product-features">
+            <li>500 ml, kierrätettyä PET-muovia</li>
+            <li>Personointi seurakunnan logolla</li>
+            <li>Sopii leireihin, tapahtumiin ja arkikäyttöön</li>
+          </ul>
+          <a href="pdf/juomapullo.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 4: Magneettikehykset -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-magneettiSeura">
+          <button class="carousel-prev" onclick="prevSlide('carousel-magneettiSeura')" aria-label="Edellinen kuva">&#8249;</button>
+          <img src="kuvat/magneettikauppa1.jpg" alt="Magneettikehys 1" class="carousel-slide active">
+          <img src="kuvat/magneettikauppa2.jpg" alt="Magneettikehys 2" class="carousel-slide">
+          <img src="kuvat/magneettikauppa3.jpg" alt="Magneettikehys 3" class="carousel-slide">
+          <button class="carousel-next" onclick="nextSlide('carousel-magneettiSeura')" aria-label="Seuraava kuva">&#8250;</button>
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-magneettiSeura',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-magneettiSeura',1)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-magneettiSeura',2)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Suosittu</span>
+          <h3>Magneettikehykset</h3>
+          <p>Ilmoitusten ja tiedotteiden hallinta helposti seurakuntatalolla, leirikeskuksissa ja keittiöissä.</p>
+          <ul class="product-features">
+            <li>Seurakuntatalot ja leirikeskukset</li>
+            <li>Keittiöt ja kokoustilat</li>
+            <li>Helppo päivittää ja pitää siistinä</li>
+          </ul>
+          <a href="pdf/Magneettikehykset+mallikuvat.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 5: Logokynät -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-kynaSeura">
+          <button class="carousel-prev" onclick="prevSlide('carousel-kynaSeura')" aria-label="Edellinen kuva">&#8249;</button>
+          <img src="kuvat/Jakokynä.jpg" alt="Jakokynä" class="carousel-slide active">
+          <img src="kuvat/Sapphire_pen.jpg" alt="Sapphire pen" class="carousel-slide">
+          <button class="carousel-next" onclick="nextSlide('carousel-kynaSeura')" aria-label="Seuraava kuva">&#8250;</button>
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-kynaSeura',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-kynaSeura',1)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Logotuote</span>
+          <h3>Logokynät</h3>
+          <p>Laadukkaat logokynät seurakunnan toimistoihin ja tapahtumiin jaettavaksi.</p>
+          <ul class="product-features">
+            <li>Sapphire pen tai jakokynä</li>
+            <li>Seurakunnan logolla</li>
+            <li>Runsas värivalikoima</li>
+          </ul>
+          <a href="pdf/Logokynät.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+</div>
+
+<section class="cta-banner">
+  <h2>Kiinnostuitko? Ota yhteyttä!</h2>
+  <p>Räätälöidään juuri teille sopivat tuotteet yhdessä.</p>
+  <a href="yhteys.html" class="btn-white">OTA YHTEYTTÄ</a>
+</section>
+
+<footer><div class="footer-inner">
+  <div><div class="footer-logo">PROMEGO</div><p class="footer-desc">Laatu ja toimivuus käsi kädessä. Logotuotteita ja toimistotarvikkeita eri toimialoille yli 25 vuoden kokemuksella.</p></div>
+  <div class="footer-col"><h4>Sivut</h4><a href="index.html">Etusivu</a><a href="tuotteet.html">Tuotteet</a><a href="toimialat.html">Toimialoittain</a><a href="yritys.html">Yritys</a><a href="yhteys.html">Yhteys</a></div>
+  <div class="footer-col"><h4>Yhteystiedot</h4><p>Jussi Lepistö</p><a href="tel:0408641384">040 864 1384</a><a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a></div>
+</div><div class="footer-bottom"><span>© 2025 Promego. Kaikki oikeudet pidätetään.</span><span>www.promego.fi</span></div></footer>
+
+<script>
+  function goToSlide(carouselId, index) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = carousel.querySelectorAll('.cdot');
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+  }
+
+  function nextSlide(carouselId) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    let current = 0;
+    slides.forEach((s, i) => { if (s.classList.contains('active')) current = i; });
+    goToSlide(carouselId, (current + 1) % slides.length);
+  }
+
+  function prevSlide(carouselId) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    let current = 0;
+    slides.forEach((s, i) => { if (s.classList.contains('active')) current = i; });
+    goToSlide(carouselId, (current - 1 + slides.length) % slides.length);
+  }
+</script>
+</body></html>

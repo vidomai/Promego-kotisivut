@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Rakennusalan toimijat – Promego</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>html{visibility:hidden;opacity:0}</style>
+<script>
+  document.fonts.ready.then(function() {
+    document.documentElement.style.visibility = 'visible';
+    document.documentElement.style.opacity = '1';
+    document.documentElement.style.transition = 'opacity 0.1s ease';
+  });
+</script>
+</head>
+<body>
+<header><div class="header-inner">
+  <a href="index.html" class="logo">PROMEGO</a>
+  <nav><a href="index.html">Etusivu</a><a href="tuotteet.html">Tuotteet</a><a href="toimialat.html" class="active">Toimialoittain</a><a href="yritys.html">Yritys</a><a href="yhteys.html">Yhteys</a></nav>
+  <div class="header-contact"><span>Ota yhteyttä</span><a href="tel:0408641384">040 864 1384</a><a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a></div>
+</div></header>
+
+<section class="page-hero"><div class="page-hero-inner">
+  <div class="breadcrumb"><a href="index.html">Etusivu</a><span>›</span><a href="toimialat.html">Toimialoittain</a><span>›</span>Rakennusalan toimijat</div>
+  <div class="page-hero-tag">Toimiala</div>
+  <h1>🏗️ Rakennusalan toimijat</h1>
+  <p>Rakennusalan ammattilaisille toimitamme käytännöllisiä tuotteita työmaan arkeen ja edustukseen. Laadukkaat logotuotteet rakennusalan yrityksille.</p>
+</div></section>
+
+<div class="content-layout">
+  <aside class="toimiala-nav">
+    <h3>Toimialat</h3>
+    <a href="apteekit.html">💊 Apteekit</a>
+    <a href="koulut.html">🎓 Koulut ja oppilaitokset</a>
+    <a href="kaupat.html">🛒 Kaupat</a>
+    <a href="kirjastot.html">📚 Kirjastot</a>
+    <a href="kunnat.html">🏛️ Kaupungit ja kunnat</a>
+    <a href="seurakunnat.html">⛪ Seurakunnat</a>
+    <a href="metsaala.html">🌲 Metsäalan toimijat</a>
+    <a href="rakennusala.html" class="current">🏗️ Rakennusalan toimijat</a>
+    <a href="kauppakeskukset.html">🏢 Kauppakeskukset</a>
+  </aside>
+  <main class="tuotteet-content">
+    <h2>Tuotteet rakennusalan toimijoille</h2>
+    <p class="intro-text">Rakennusalalla tarvitaan kestäviä ja käytännöllisiä tuotteita. Meiltä löytyy ratkaisut niin työmaan arkeen kuin yrityksen markkinointiin.</p>
+    <div class="product-list">
+
+      <!-- Tuote 1: Logolippikset -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-lippis-rak">
+          <button class="carousel-prev" onclick="prevSlide('carousel-lippis-rak')" aria-label="Edellinen kuva">&#8249;</button>
+          <img src="kuvat/lippis1.jpg" alt="Lippis 1" class="carousel-slide active">
+          <img src="kuvat/lippis2.jpg" alt="Lippis 2" class="carousel-slide">
+          <img src="kuvat/lippis3.jpg" alt="Lippis 3" class="carousel-slide">
+          <button class="carousel-next" onclick="nextSlide('carousel-lippis-rak')" aria-label="Seuraava kuva">&#8250;</button>
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-lippis-rak',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-lippis-rak',1)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-lippis-rak',2)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Yritystekstiili</span>
+          <h3>Logolippikset</h3>
+          <p>Laadukkaat logolippikset rakennusalan yritykselle. Käytännölliset ja siistit – sopivat työmaille ja asiakastilaisuuksiin.</p>
+          <ul class="product-features">
+            <li>Kestävät materiaalit</li>
+            <li>Beat-S, Sandwich-S ja Paka -mallit</li>
+            <li>Brodeeraus sisältyy hintaan</li>
+            <li>Runsas värivalikoima</li>
+          </ul>
+          <a href="pdf/paka.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite: Paka</a>
+          <a href="pdf/beat.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite: Beat</a>
+          <a href="pdf/sandwich.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite: Sandwitch</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 2: Kolmihaarainen latauskaapeli -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-kaapeli-rak">
+          <button class="carousel-prev" onclick="prevSlide('carousel-kaapeli-rak')" aria-label="Edellinen kuva">&#8249;</button>
+          <img src="kuvat/latauskaapeli1.jpg" alt="Latauskaapeli 1" class="carousel-slide active">
+          <img src="kuvat/latauskaapeli2.jpg" alt="Latauskaapeli 2" class="carousel-slide">
+          <button class="carousel-next" onclick="nextSlide('carousel-kaapeli-rak')" aria-label="Seuraava kuva">&#8250;</button>
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-kaapeli-rak',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-kaapeli-rak',1)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Liikelahja</span>
+          <h3>Kolmihaarainen latauskaapeli</h3>
+          <p>Toimiva liikelahja asiakkaille ja yhteistyökumppaneille. Käytännöllinen ja kaikenikäisille sopiva.</p>
+          <ul class="product-features">
+            <li>iPhone Lightning, USB-C ja Micro-USB</li>
+            <li>Punottu kestävä kaapeli</li>
+            <li>Logo laseroituna haaroituskohtaan</li>
+          </ul>
+          <a href="pdf/Latauskaapeli.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 3: Logokynät -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-kyna-rak">
+          <button class="carousel-prev" onclick="prevSlide('carousel-kyna-rak')" aria-label="Edellinen kuva">&#8249;</button>
+          <img src="kuvat/Jakokynä.jpg" alt="Jakokynä" class="carousel-slide active">
+          <img src="kuvat/Sapphire_pen.jpg" alt="Sapphire pen" class="carousel-slide">
+          <button class="carousel-next" onclick="nextSlide('carousel-kyna-rak')" aria-label="Seuraava kuva">&#8250;</button>
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-kyna-rak',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-kyna-rak',1)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Logotuote</span>
+          <h3>Logokynät</h3>
+          <p>Laadukkaat logokynät toimistoon ja asiakaspalveluun. Pitkäaikainen logonäkyvyys edullisesti.</p>
+          <ul class="product-features">
+            <li>Sapphire pen – premium metallirunkoinen</li>
+            <li>Jakokynä – erinomainen hinta-laatu</li>
+            <li>Logo laseroimalla tai painamalla</li>
+          </ul>
+          <a href="pdf/Logokynät.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 4: AARNI-kellot -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-aarni-rak">
+          <button class="carousel-prev" onclick="prevSlide('carousel-aarni-rak')" aria-label="Edellinen kuva">&#8249;</button>
+          <img src="kuvat/aarni1.jpg" alt="Aarni kello 1" class="carousel-slide active">
+          <img src="kuvat/aarni2.jpg" alt="Aarni kello 2" class="carousel-slide">
+          <img src="kuvat/aarni3.jpg" alt="Aarni kello 3" class="carousel-slide">
+          <button class="carousel-next" onclick="nextSlide('carousel-aarni-rak')" aria-label="Seuraava kuva">&#8250;</button>
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-aarni-rak',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-aarni-rak',1)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-aarni-rak',2)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Premium liikelahja</span>
+          <h3>AARNI-kellot</h3>
+          <p>Arvokkaat puiset AARNI-kellot erottuvana liikelahjana tärkeille asiakkaille tai henkilökunnalle.</p>
+          <ul class="product-features">
+            <li>Suomalaista puuta – uniikki jokaiselle</li>
+            <li>Sveitsiläinen tai japanilainen koneisto</li>
+            <li>Ympäristöystävällinen valinta</li>
+          </ul>
+          <p style="font-size:.9rem;margin-bottom:8px;">Lisätietoa AARNIN-tuotteista: <a href="https://promego.skypro.fi/tuotteet/tuotemerkki/aarni/" target="_blank" style="color:var(--green-dark);font-weight:600;">promego.skypro.fi</a></p>
+          <a href="pdf/Aarni kellot.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+</div>
+
+<section class="cta-banner">
+  <h2>Kiinnostuitko? Ota yhteyttä!</h2>
+  <p>Räätälöidään juuri teille sopivat tuotteet yhdessä.</p>
+  <a href="yhteys.html" class="btn-white">OTA YHTEYTTÄ</a>
+</section>
+
+<footer><div class="footer-inner">
+  <div><div class="footer-logo">PROMEGO</div><p class="footer-desc">Laatu ja toimivuus käsi kädessä. Logotuotteita eri toimialoille yli 25 vuoden kokemuksella.</p></div>
+  <div class="footer-col"><h4>Sivut</h4><a href="index.html">Etusivu</a><a href="tuotteet.html">Tuotteet</a><a href="toimialat.html">Toimialoittain</a><a href="yritys.html">Yritys</a><a href="yhteys.html">Yhteys</a></div>
+  <div class="footer-col"><h4>Yhteystiedot</h4><p>Jussi Lepistö</p><a href="tel:0408641384">040 864 1384</a><a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a></div>
+</div><div class="footer-bottom"><span>© 2025 Promego. Kaikki oikeudet pidätetään.</span><span>www.promego.fi</span></div></footer>
+
+<script>
+  function goToSlide(carouselId, index) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = carousel.querySelectorAll('.cdot');
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+  }
+
+  function nextSlide(carouselId) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    let current = 0;
+    slides.forEach((s, i) => { if (s.classList.contains('active')) current = i; });
+    goToSlide(carouselId, (current + 1) % slides.length);
+  }
+
+  function prevSlide(carouselId) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    let current = 0;
+    slides.forEach((s, i) => { if (s.classList.contains('active')) current = i; });
+    goToSlide(carouselId, (current - 1 + slides.length) % slides.length);
+  }
+</script>
+</body></html>

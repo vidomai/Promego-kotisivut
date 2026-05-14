@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaupat – Promego</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>html{visibility:hidden;opacity:0}</style>
+<script>
+  document.fonts.ready.then(function() {
+    document.documentElement.style.visibility = 'visible';
+    document.documentElement.style.opacity = '1';
+    document.documentElement.style.transition = 'opacity 0.1s ease';
+  });
+</script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">PROMEGO</a>
+    <nav>
+      <a href="index.html">Etusivu</a>
+      <a href="tuotteet.html">Tuotteet</a>
+      <a href="toimialat.html" class="active">Toimialoittain</a>
+      <a href="yritys.html">Yritys</a>
+      <a href="yhteys.html">Yhteys</a>
+    </nav>
+    <div class="header-contact">
+      <span>Ota yhteyttä</span>
+      <a href="tel:0408641384">040 864 1384</a>
+      <a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Etusivu</a><span>›</span>
+      <a href="toimialat.html">Toimialoittain</a><span>›</span>
+      Kaupat
+    </div>
+    <div class="page-hero-tag">Toimiala</div>
+    <h1>🛒 Kaupat</h1>
+    <p>Olemme tehneet yhteistyötä eri kokoisten kauppojen kanssa, pienistä kyläkaupoista aina kauppakeskuksiin asti. Tässä täsmätuotteita kaupan alalle.</p>
+  </div>
+</section>
+
+<div class="content-layout">
+  <aside class="toimiala-nav">
+    <h3>Toimialat</h3>
+    <a href="apteekit.html">💊 Apteekit</a>
+    <a href="koulut.html">🎓 Koulut ja oppilaitokset</a>
+    <a href="kaupat.html" class="current">🛒 Kaupat</a>
+    <a href="kirjastot.html">📚 Kirjastot</a>
+    <a href="kunnat.html">🏛️ Kaupungit ja kunnat</a>
+    <a href="seurakunnat.html">⛪ Seurakunnat</a>
+    <a href="metsaala.html">🌲 Metsäalan toimijat</a>
+    <a href="rakennusala.html">🏗️ Rakennusalan toimijat</a>
+    <a href="kauppakeskukset.html">🏢 Kauppakeskukset</a>
+  </aside>
+  <main class="tuotteet-content">
+    <h2>Tuotteet kaupoille</h2>
+    <p class="intro-text">Pienistä kyläkaupoista kauppakeskuksiin – meiltä löytyy toimivat ratkaisut kaupan arkeen ja esillepanoon.</p>
+    <div class="product-list">
+
+      <!-- Tuote 1: Magneettikehykset -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-magneettikauppa">
+          <button class="carousel-prev" onclick="prevSlide('carousel-magneettikauppa')" aria-label="Edellinen kuva">&#8249;</button>
+          <img src="kuvat/magneettikauppa1.jpg" alt="Magneettikehys 1" class="carousel-slide active">
+          <img src="kuvat/magneettikauppa2.jpg" alt="Magneettikehys 2" class="carousel-slide">
+          <img src="kuvat/magneettikauppa3.jpg" alt="Magneettikehys 3" class="carousel-slide">
+          <button class="carousel-next" onclick="nextSlide('carousel-magneettikauppa')" aria-label="Seuraava kuva">&#8250;</button>
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-magneettikauppa',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-magneettikauppa',1)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-magneettikauppa',2)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Suosittu</span>
+          <h3>Magneettikehykset</h3>
+          <p>Tyylikäs ja käytännöllinen ratkaisu tiedotteiden, tarjousten ja ilmoitusten esillä pitämiseen kaupassa.</p>
+          <ul class="product-features">
+            <li>Sopii: ulko-ovet, tiedotteet, tarjoukset, myyntiluvat</li>
+            <li>Tiedotteiden vaihto helppoa ja nopeaa</li>
+            <li>Toimii kaikilla tasaisilla pinnoilla</li>
+            <li>Lasipinnoilla voi ilmoittaa kahteen suuntaan</li>
+          </ul>
+          <a href="pdf/Magneettikehykset kauppa.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 2: Vahva jojo -->
+      <article class="product-card">
+        <div class="product-img">
+          <img src="kuvat/jojo.jpg" alt="Vahva jojo avaimille" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Henkilökunta</span>
+          <h3>Vahva jojo avaimille ja kulkukorteille</h3>
+          <p>Monella työpaikalla henkilökunta joutuu avaamaan ovia toistuvasti. Kestävä ja toimiva ratkaisu avaimille ja kulkukorteille.</p>
+          <ul class="product-features">
+            <li>Magneettilukko kestää 300 g painon</li>
+            <li>Jojon narun pituus 60 cm</li>
+            <li>Toimii avaimille, kulkutägeille ja korttikoteloille</li>
+            <li>Saatavana vyöklipsi- ja kaulanauhaversionsa</li>
+          </ul>
+          <a href="pdf/Vahvajojo.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 3: Ripustustarra -->
+      <article class="product-card">
+        <div class="product-img">
+          <img src="kuvat/ripustustarra.jpg" alt="Ripustustarra" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Esillepano</span>
+          <h3>Ripustustarra</h3>
+          <p>3M ripustustarra 50×50 mm tuotteiden ripustamiseen ja esillepanoon. Kirkas teippi, kolmion muotoinen reikä kaksoiskoukkuihin.</p>
+          <ul class="product-features">
+            <li>Kirkas polyesteriselkä – pakkausmerkinnät näkyvät läpi</li>
+            <li>Valmiiksi leikatut arkit esipakatuissa nipuissa</li>
+            <li>Soveltuu leveämpiin kaksoiskoukkuihin</li>
+            <li>Pakkaaminen, kiinnitys, esillepano ja ripustus</li>
+          </ul>
+          <a href="pdf/Ripustustarra.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+      <!-- Tuote 4: Logokynät -->
+      <article class="product-card">
+        <div class="product-img carousel" id="carousel-kyna">
+          <button class="carousel-prev" onclick="prevSlide('carousel-kyna')" aria-label="Edellinen kuva">&#8249;</button>
+          <img src="kuvat/Jakokynä.jpg" alt="Jakokynä" class="carousel-slide active">
+          <img src="kuvat/Sapphire_pen.jpg" alt="Sapphire pen" class="carousel-slide">
+          <button class="carousel-next" onclick="nextSlide('carousel-kyna')" aria-label="Seuraava kuva">&#8250;</button>
+          <div class="carousel-dots">
+            <button class="cdot active" onclick="goToSlide('carousel-kyna',0)"></button>
+            <button class="cdot" onclick="goToSlide('carousel-kyna',1)"></button>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="product-tag">Logotuote</span>
+          <h3>Logokynät</h3>
+          <p>Laadukkaat logokynät kassalle ja asiakaspalveluun. Saatavana premium Sapphire pen sekä edullinen jakokynä.</p>
+          <ul class="product-features">
+            <li>Sapphire pen – metallirunkoinen, laseroitu logo</li>
+            <li>Jakokynä – hinta-laatu erinomainen, runsas värivalikoima</li>
+            <li>Liukas kirjoitusjälki</li>
+          </ul>
+          <a href="pdf/Logokynät.pdf" class="product-pdf" target="_blank">📄 Lataa tuote-esite (PDF)</a>
+          <a href="yhteys.html" class="product-cta">Kysy lisää →</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+</div>
+
+<section class="cta-banner">
+  <h2>Kiinnostuitko? Ota yhteyttä!</h2>
+  <p>Räätälöidään juuri teidän kaupalle sopivat tuotteet yhdessä.</p>
+  <a href="yhteys.html" class="btn-white">OTA YHTEYTTÄ</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">PROMEGO</div>
+      <p class="footer-desc">Laatu ja toimivuus käsi kädessä. Logotuotteita ja toimistotarvikkeita eri toimialoille yli 25 vuoden kokemuksella.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Sivut</h4>
+      <a href="index.html">Etusivu</a>
+      <a href="tuotteet.html">Tuotteet</a>
+      <a href="toimialat.html">Toimialoittain</a>
+      <a href="yritys.html">Yritys</a>
+      <a href="yhteys.html">Yhteys</a>
+    </div>
+    <div class="footer-col">
+      <h4>Yhteystiedot</h4>
+      <p>Jussi Lepistö</p>
+      <a href="tel:0408641384">040 864 1384</a>
+      <a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Promego. Kaikki oikeudet pidätetään.</span>
+    <span>www.promego.fi</span>
+  </div>
+</footer>
+
+<script>
+  function goToSlide(carouselId, index) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = carousel.querySelectorAll('.cdot');
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+  }
+
+  function nextSlide(carouselId) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    let current = 0;
+    slides.forEach((s, i) => { if (s.classList.contains('active')) current = i; });
+    goToSlide(carouselId, (current + 1) % slides.length);
+  }
+
+  function prevSlide(carouselId) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    let current = 0;
+    slides.forEach((s, i) => { if (s.classList.contains('active')) current = i; });
+    goToSlide(carouselId, (current - 1 + slides.length) % slides.length);
+  }
+</script>
+</body>
+</html>
