@@ -41,8 +41,8 @@
 <section class="hero">
   <div class="hero-slides">
     <div class="hero-slide active"></div>
-    <div class="hero-slide"></div>
-    <div class="hero-slide"></div>
+    <div class="hero-slide hero-slide-img" style="background-image:url('kuvat/huippugolleget.jpg');background-size:cover;background-position:center;cursor:pointer;" onclick="window.open('https://promego.skypro.fi/','_blank')"></div>
+    <div class="hero-slide hero-slide-img" style="background-image:url('kuvat/hellyhansen.jpg');background-size:cover;background-position:center;cursor:pointer;" onclick="window.open('https://promego.skypro.fi/','_blank')"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -148,12 +148,18 @@
   const slides = document.querySelectorAll('.hero-slide');
   const dots = document.querySelectorAll('.dot');
 
+  const heroContent = document.querySelector('.hero-content');
+  const heroOverlay = document.querySelector('.hero-overlay');
+
   function goToSlide(n) {
     slides[current].classList.remove('active');
     dots[current].classList.remove('active');
     current = n;
     slides[current].classList.add('active');
     dots[current].classList.add('active');
+    const isImgSlide = slides[current].classList.contains('hero-slide-img');
+    heroContent.style.display = isImgSlide ? 'none' : '';
+    heroOverlay.style.display = isImgSlide ? 'none' : '';
   }
 
   setInterval(() => {
