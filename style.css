@@ -629,7 +629,8 @@ footer {
   position: relative;
   background: var(--green-dark);
   overflow: hidden;
-  min-height: 436px;
+  aspect-ratio: 1517 / 436;
+  min-height: 200px;
   display: flex;
   align-items: center;
 }
