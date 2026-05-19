@@ -1173,6 +1173,10 @@ footer {
   grid-template-columns: unset;
 }
 
+.product-grid .product-card-img {
+  height: 260px;
+}
+
 .product-card-body {
   padding: 20px;
   flex: 1;
