@@ -629,7 +629,7 @@ footer {
   position: relative;
   background: var(--green-dark);
   overflow: hidden;
-  min-height: 520px;
+  min-height: 436px;
   display: flex;
   align-items: center;
 }

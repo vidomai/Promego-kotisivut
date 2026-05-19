@@ -38,27 +38,37 @@
 </header>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-slides">
-    <div class="hero-slide active"></div>
-    <div class="hero-slide hero-slide-img" style="background-image:url('kuvat/huippugolleget.jpg');background-size:cover;background-position:center;cursor:pointer;" onclick="window.open('https://promego.skypro.fi/','_blank')"></div>
-    <div class="hero-slide hero-slide-img" style="background-image:url('kuvat/hellyhansen.jpg');background-size:cover;background-position:center;cursor:pointer;" onclick="window.open('https://promego.skypro.fi/','_blank')"></div>
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <span class="hero-tag">Yli 25 vuoden kokemus</span>
-    <h1>Logotuotteita, jotka saavat asiakkaasi hymyilemään</h1>
-    <p>Laatu ja toimivuus käsi kädessä – löydä täsmätuotteita toimialallesi Promegolta.</p>
-    <a href="yhteys.html" class="hero-cta">
-      Ota yhteyttä →
+<div id="hero-wrapper" style="position:relative;">
+  <section class="hero" id="hero-text">
+    <div class="hero-slides">
+      <div class="hero-slide active"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tag">Yli 25 vuoden kokemus</span>
+      <h1>Logotuotteita, jotka saavat asiakkaasi hymyilemään</h1>
+      <p>Laatu ja toimivuus käsi kädessä – löydä täsmätuotteita toimialallesi Promegolta.</p>
+      <a href="yhteys.html" class="hero-cta">
+        Ota yhteyttä →
+      </a>
+    </div>
+  </section>
+
+  <!-- KUVASLIDET -->
+  <div id="hero-img-slides" style="display:none;">
+    <a href="https://promego.skypro.fi/" target="_blank">
+      <img id="hero-img" src="" alt="" style="width:100%;height:436px;object-fit:cover;display:block;">
     </a>
   </div>
-  <div class="hero-dots">
+
+  <div class="hero-dots" style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:10;">
     <button class="dot active" onclick="goToSlide(0)"></button>
     <button class="dot" onclick="goToSlide(1)"></button>
     <button class="dot" onclick="goToSlide(2)"></button>
   </div>
-</section>
+</div>
 
 <!-- TOIMIALAT -->
 <section class="toimialat-section">
@@ -145,25 +155,31 @@
 <script>
   // Slideshow
   let current = 0;
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots = document.querySelectorAll('.dot');
-
-  const heroContent = document.querySelector('.hero-content');
-  const heroOverlay = document.querySelector('.hero-overlay');
+  const slides = document.querySelectorAll('#hero-text .hero-slide');
+  const allDots = document.querySelectorAll('.dot');
+  const heroText = document.getElementById('hero-text');
+  const heroImgSlides = document.getElementById('hero-img-slides');
+  const heroImg = document.getElementById('hero-img');
+  const imgSrcs = ['kuvat/huippugolleget.jpg', 'kuvat/hellyhansen.jpg'];
 
   function goToSlide(n) {
     slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
     current = n;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-    const isImgSlide = slides[current].classList.contains('hero-slide-img');
-    heroContent.style.display = isImgSlide ? 'none' : '';
-    heroOverlay.style.display = isImgSlide ? 'none' : '';
+    allDots.forEach(d => d.classList.remove('active'));
+    allDots[n].classList.add('active');
+    if (n === 0) {
+      heroText.style.display = '';
+      heroImgSlides.style.display = 'none';
+      slides[0].classList.add('active');
+    } else {
+      heroText.style.display = 'none';
+      heroImgSlides.style.display = 'block';
+      heroImg.src = imgSrcs[n - 1];
+    }
   }
 
   setInterval(() => {
-    goToSlide((current + 1) % slides.length);
+    goToSlide((current + 1) % 3);
   }, 4500);
 </script>
 
