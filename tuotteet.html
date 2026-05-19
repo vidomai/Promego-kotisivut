@@ -55,8 +55,8 @@
       <button onclick="sNav('s-pvm',1)" class="s-btn s-btn-r">&#8250;</button>
     </div><div class="product-card-body"><span class="product-card-tag">Toimisto</span><h3>PVM-leimasin</h3><p>Päivämääräleimasin kirjaamoille, asiointipisteille ja apteekkeihin. Helppo päivittää päivittäin.</p><a href="yhteys.html" class="product-card-cta">Kysy lisää →</a></div></div>
     <div class="product-card"><div class="product-card-img card-slider" id="s-allekiri" style="position:relative;overflow:hidden;padding:0;">
-      <img class="s-img" src="kuvat/Leimasinsuorakaide.JPG" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.8s;">
-      <img class="s-img" src="kuvat/jussin nimenselvennys.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
+      <img class="s-img" src="kuvat/jussin nimenselvennys.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.8s;">
+      <img class="s-img" src="kuvat/Leimasinsuorakaide.JPG" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
       <button onclick="sNav('s-allekiri',-1)" class="s-btn s-btn-l">&#8249;</button>
       <button onclick="sNav('s-allekiri',1)" class="s-btn s-btn-r">&#8250;</button>
     </div><div class="product-card-body"><span class="product-card-tag">Henkilökohtainen</span><h3>Allekirjoitusleima</h3><p>Nimenselvennys- ja allekirjoitusleimasimet nopeuttavat arjen paperityötä merkittävästi.</p><a href="yhteys.html" class="product-card-cta">Kysy lisää →</a></div></div>
@@ -148,7 +148,6 @@
   document.querySelectorAll('.card-slider').forEach(el => {
     const imgs = Array.from(el.querySelectorAll('.s-img'));
     sliders[el.id] = { imgs, cur: 0 };
-    if (imgs.length > 1) setInterval(() => sNav(el.id, 1), 3500);
   });
 
   function sNav(id, dir) {
