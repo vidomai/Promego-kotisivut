@@ -1177,6 +1177,23 @@ footer {
   height: 400px;
 }
 
+.s-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 2;
+}
+.s-btn-l { left: 8px; }
+.s-btn-r { right: 8px; }
+
 .product-card-body {
   padding: 20px;
   flex: 1;
