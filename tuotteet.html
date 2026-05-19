@@ -45,6 +45,8 @@
       <img class="pvm-slide" src="kuvat/leimasin utajärvi.jpg" alt="PVM-leimasin" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.8s;">
       <img class="pvm-slide" src="kuvat/leimasin1.jpg" alt="PVM-leimasin" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
       <img class="pvm-slide" src="kuvat/leimasin2.jpg" alt="PVM-leimasin" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
+      <button onclick="pvmNav(-1)" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.4);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1.1rem;cursor:pointer;z-index:2;">&#8249;</button>
+      <button onclick="pvmNav(1)" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.4);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:1.1rem;cursor:pointer;z-index:2;">&#8250;</button>
     </div><div class="product-card-body"><span class="product-card-tag">Toimisto</span><h3>PVM-leimasin</h3><p>Päivämääräleimasin kirjaamoille, asiointipisteille ja apteekkeihin. Helppo päivittää päivittäin.</p><a href="yhteys.html" class="product-card-cta">Kysy lisää →</a></div></div>
     <div class="product-card"><div class="product-card-img"></div><div class="product-card-body"><span class="product-card-tag">Henkilökohtainen</span><h3>Allekirjoitusleima</h3><p>Nimenselvennys- ja allekirjoitusleimasimet nopeuttavat arjen paperityötä merkittävästi.</p><a href="yhteys.html" class="product-card-cta">Kysy lisää →</a></div></div>
     <div class="product-card"><div class="product-card-img"></div><div class="product-card-body"><span class="product-card-tag">Julkishallinto</span><h3>Vaakunaleima</h3><p>Kunnan tai kaupungin vaakunalla varustettu leima viralliseen käyttöön.</p><a href="yhteys.html" class="product-card-cta">Kysy lisää →</a></div></div>
@@ -119,10 +121,15 @@
 <script>
   const pvmSlides = document.querySelectorAll('.pvm-slide');
   let pvmCurrent = 0;
-  setInterval(() => {
+
+  function pvmGoTo(n) {
     pvmSlides[pvmCurrent].style.opacity = '0';
-    pvmCurrent = (pvmCurrent + 1) % pvmSlides.length;
+    pvmCurrent = (n + pvmSlides.length) % pvmSlides.length;
     pvmSlides[pvmCurrent].style.opacity = '1';
-  }, 3000);
+  }
+
+  function pvmNav(dir) { pvmGoTo(pvmCurrent + dir); }
+
+  setInterval(() => pvmGoTo(pvmCurrent + 1), 3000);
 </script>
 </body></html>
