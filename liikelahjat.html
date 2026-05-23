@@ -34,7 +34,13 @@
   <div class="product-list">
 
     <article class="product-card">
-      <div class="product-img"></div>
+      <div class="product-img card-slider" id="s-aarni" style="position:relative;overflow:hidden;padding:0;">
+        <img class="s-img" src="kuvat/liikelahjat aarni1.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.8s;">
+        <img class="s-img" src="kuvat/liikelahjat aarni2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
+        <img class="s-img" src="kuvat/liikelahjat aarni3.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
+        <button onclick="sNav('s-aarni',-1)" class="s-btn s-btn-l">&#8249;</button>
+        <button onclick="sNav('s-aarni',1)" class="s-btn s-btn-r">&#8250;</button>
+      </div>
       <div class="product-body">
         <span class="product-tag">Premium liikelahja</span>
         <h3>AARNI-kellot – Suomalaista puuta</h3>
@@ -51,7 +57,12 @@
     </article>
 
     <article class="product-card">
-      <div class="product-img"></div>
+      <div class="product-img card-slider" id="s-kaapeli" style="position:relative;overflow:hidden;padding:0;">
+        <img class="s-img" src="kuvat/liikelahjat latauskaapeli1.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.8s;">
+        <img class="s-img" src="kuvat/liikelahjat latauskaapeli2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
+        <button onclick="sNav('s-kaapeli',-1)" class="s-btn s-btn-l">&#8249;</button>
+        <button onclick="sNav('s-kaapeli',1)" class="s-btn s-btn-r">&#8250;</button>
+      </div>
       <div class="product-body">
         <span class="product-tag">Käytännöllinen</span>
         <h3>Kolmihaarainen latauskaapeli</h3>
@@ -67,7 +78,12 @@
     </article>
 
     <article class="product-card">
-      <div class="product-img"></div>
+      <div class="product-img card-slider" id="s-kyna" style="position:relative;overflow:hidden;padding:0;">
+        <img class="s-img" src="kuvat/liikelahjat Jakokynä.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.8s;">
+        <img class="s-img" src="kuvat/liikelahjat Sapphire_pen.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
+        <button onclick="sNav('s-kyna',-1)" class="s-btn s-btn-l">&#8249;</button>
+        <button onclick="sNav('s-kyna',1)" class="s-btn s-btn-r">&#8250;</button>
+      </div>
       <div class="product-body">
         <span class="product-tag">Klassikko</span>
         <h3>Logokynät</h3>
@@ -83,7 +99,12 @@
     </article>
 
     <article class="product-card">
-      <div class="product-img"></div>
+      <div class="product-img card-slider" id="s-pullo" style="position:relative;overflow:hidden;padding:0;">
+        <img class="s-img" src="kuvat/liikelhahjat Juomapullo1.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.8s;">
+        <img class="s-img" src="kuvat/liikelhahjat Juomapullo2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
+        <button onclick="sNav('s-pullo',-1)" class="s-btn s-btn-l">&#8249;</button>
+        <button onclick="sNav('s-pullo',1)" class="s-btn s-btn-r">&#8250;</button>
+      </div>
       <div class="product-body">
         <span class="product-tag">Ekologinen</span>
         <h3>RPET Juomapullo</h3>
@@ -99,7 +120,12 @@
     </article>
 
     <article class="product-card">
-      <div class="product-img"></div>
+      <div class="product-img card-slider" id="s-safecard" style="position:relative;overflow:hidden;padding:0;">
+        <img class="s-img" src="kuvat/Punkinpoistaja1 – liike.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.8s;">
+        <img class="s-img" src="kuvat/Punkinpoistaja2 – liike.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
+        <button onclick="sNav('s-safecard',-1)" class="s-btn s-btn-l">&#8249;</button>
+        <button onclick="sNav('s-safecard',1)" class="s-btn s-btn-r">&#8250;</button>
+      </div>
       <div class="product-body">
         <span class="product-tag">Jakotuote</span>
         <h3>SafeCard – Punkinpoistaja</h3>
@@ -123,4 +149,17 @@
   <div class="footer-col"><h4>Sivut</h4><a href="index.html">Etusivu</a><a href="tuotteet.html">Tuotteet</a><a href="toimialat.html">Toimialoittain</a><a href="yritys.html">Yritys</a><a href="yhteys.html">Yhteys</a></div>
   <div class="footer-col"><h4>Yhteystiedot</h4><p>Jussi Lepistö</p><a href="tel:0408641384">040 864 1384</a><a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a><p>Niemelänkatu 17, 92100 Raahe</p></div>
 </div><div class="footer-bottom"><span>© 2025 Promego Oy. Y-tunnus: 3340824-8</span><span>www.promego.fi</span></div></footer>
+<script>
+  const sliders = {};
+  document.querySelectorAll('.card-slider').forEach(el => {
+    const imgs = Array.from(el.querySelectorAll('.s-img'));
+    sliders[el.id] = { imgs, cur: 0 };
+  });
+  function sNav(id, dir) {
+    const s = sliders[id];
+    s.imgs[s.cur].style.opacity = '0';
+    s.cur = (s.cur + dir + s.imgs.length) % s.imgs.length;
+    s.imgs[s.cur].style.opacity = '1';
+  }
+</script>
 </body></html>
