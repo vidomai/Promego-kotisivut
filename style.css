@@ -1501,6 +1501,7 @@ footer {
   transition: color .15s;
 }
 
+.contact-item-text a { color: var(--green-dark); }
 .contact-item-text a:hover { color: var(--green-dark); }
 
 .contact-card-footer {
