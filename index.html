@@ -39,27 +39,10 @@
 
 <!-- HERO -->
 <div id="hero-wrapper" style="position:relative;">
-  <section class="hero" id="hero-text">
-    <div class="hero-slides">
-      <div class="hero-slide active"></div>
-      <div class="hero-slide"></div>
-      <div class="hero-slide"></div>
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-tag">Yli 25 vuoden kokemus</span>
-      <h1>Logotuotteita, jotka saavat asiakkaasi hymyilemään</h1>
-      <p>Laatu ja toimivuus käsi kädessä – löydä täsmätuotteita toimialallesi Promegolta.</p>
-      <a href="yhteys.html" class="hero-cta">
-        Ota yhteyttä →
-      </a>
-    </div>
-  </section>
-
   <!-- KUVASLIDET -->
-  <div id="hero-img-slides" style="display:none;">
-    <a href="https://promego.skypro.fi/" target="_blank">
-      <img id="hero-img" src="" alt="" style="width:100%;height:auto;display:block;">
+  <div id="hero-img-slides">
+    <a id="hero-link" href="yhteys.html">
+      <img id="hero-img" src="kuvat/logotuoteet slider.jpg" alt="" style="width:100%;height:auto;display:block;">
     </a>
   </div>
 
@@ -94,7 +77,7 @@
   <div class="tuotteet-inner">
     <div class="section-title">
       <h2>Tuotteemme</h2>
-      <p>Promego logotuotteita, jotka saavat asiakkaasi hymyilemään – eikä vain pakettia avatessaan.</p>
+      <p>Logotuotteita, jotka saavat asiakkaasi hymyilemään – eikä vain pakettia avatessaan.</p>
     </div>
     <div class="tuote-grid">
       <a href="tekstiilit.html" class="tuote-card">
@@ -155,27 +138,20 @@
 <script>
   // Slideshow
   let current = 0;
-  const slides = document.querySelectorAll('#hero-text .hero-slide');
   const allDots = document.querySelectorAll('.dot');
-  const heroText = document.getElementById('hero-text');
-  const heroImgSlides = document.getElementById('hero-img-slides');
   const heroImg = document.getElementById('hero-img');
-  const imgSrcs = ['kuvat/huippugolleget.jpg', 'kuvat/hellyhansen.jpg'];
+  const heroLink = document.getElementById('hero-link');
+  const imgSrcs = ['kuvat/logotuoteet slider.jpg', 'kuvat/huippugolleget.jpg', 'kuvat/hellyhansen.jpg'];
+  const linkHrefs = ['yhteys.html', 'https://promego.skypro.fi/', 'https://promego.skypro.fi/'];
+  const linkTargets = ['_self', '_blank', '_blank'];
 
   function goToSlide(n) {
-    slides[current].classList.remove('active');
     current = n;
     allDots.forEach(d => d.classList.remove('active'));
     allDots[n].classList.add('active');
-    if (n === 0) {
-      heroText.style.display = '';
-      heroImgSlides.style.display = 'none';
-      slides[0].classList.add('active');
-    } else {
-      heroText.style.display = 'none';
-      heroImgSlides.style.display = 'block';
-      heroImg.src = imgSrcs[n - 1];
-    }
+    heroImg.src = imgSrcs[n];
+    heroLink.href = linkHrefs[n];
+    heroLink.target = linkTargets[n];
   }
 
   setInterval(() => {
