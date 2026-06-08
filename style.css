@@ -671,7 +671,7 @@ footer {
   color: var(--white);
   font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
   font-weight: 700;
-  font-size: .8rem;
+  font-size: 1.25rem;
   letter-spacing: .12em;
   text-transform: uppercase;
   padding: 4px 12px;
@@ -681,20 +681,20 @@ footer {
 
 .hero h1 {
   font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
-  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-size: clamp(3.6rem, 7.5vw, 5.9rem);
   font-weight: 800;
   color: var(--white);
   line-height: 1.08;
-  max-width: 600px;
+  max-width: 100%;
   margin-bottom: 20px;
   letter-spacing: .01em;
 }
 
 .hero p {
   color: rgba(255,255,255,.85);
-  font-size: 1.1rem;
+  font-size: 1.66rem;
   font-weight: 300;
-  max-width: 480px;
+  max-width: 100%;
   line-height: 1.6;
   margin-bottom: 32px;
 }
@@ -708,10 +708,10 @@ footer {
   text-decoration: none;
   font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1.49rem;
   letter-spacing: .08em;
   text-transform: uppercase;
-  padding: 14px 28px;
+  padding: 16px 32px;
   border-radius: 4px;
   transition: background .2s, transform .15s;
 }
