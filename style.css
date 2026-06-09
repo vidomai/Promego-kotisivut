@@ -610,11 +610,6 @@ footer {
   .toimiala-nav h3 { width: 100%; }
   .toimiala-nav a { border-left: none; border-bottom: 3px solid transparent; }
   .toimiala-nav a.current { border-left: none; border-bottom-color: var(--green); }
-}
-
-@media (max-width: 700px) {
-  .product-card { grid-template-columns: 1fr; }
-  .product-img { min-height: 160px; }
   .header-inner { flex-wrap: wrap; height: auto; padding: 8px 16px; gap: 4px; }
   .logo { font-size: 2.6rem; flex: 1; }
   .header-contact { flex-direction: column; align-items: flex-end; font-size: .72rem; }
@@ -622,6 +617,11 @@ footer {
   .header-contact a { font-size: .82rem; }
   nav { flex-wrap: wrap; gap: 4px; width: 100%; justify-content: flex-start; order: 3; }
   nav a { font-size: .78rem; padding: 4px 8px; }
+}
+
+@media (max-width: 700px) {
+  .product-card { grid-template-columns: 1fr; }
+  .product-img { min-height: 160px; }
   .footer-inner { grid-template-columns: 1fr; gap: 24px; }
 }
 
