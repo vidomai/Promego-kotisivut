@@ -34,12 +34,17 @@
   <div class="product-list">
 
     <article class="product-card">
-      <div class="product-img card-slider" id="s-aarni" style="position:relative;overflow:hidden;padding:0;">
-        <img class="s-img" src="kuvat/liikelahjat aarni1.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.8s;">
-        <img class="s-img" src="kuvat/liikelahjat aarni2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
-        <img class="s-img" src="kuvat/liikelahjat aarni3.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
-        <button onclick="sNav('s-aarni',-1)" class="s-btn s-btn-l">&#8249;</button>
-        <button onclick="sNav('s-aarni',1)" class="s-btn s-btn-r">&#8250;</button>
+      <div class="product-img carousel" id="carousel-aarni">
+        <button class="carousel-prev" onclick="prevSlide('carousel-aarni')" aria-label="Edellinen kuva">&#8249;</button>
+        <img src="kuvat/liikelahjat aarni1.jpg" alt="AARNI kello 1" class="carousel-slide active">
+        <img src="kuvat/liikelahjat aarni2.jpg" alt="AARNI kello 2" class="carousel-slide">
+        <img src="kuvat/liikelahjat aarni3.jpg" alt="AARNI kello 3" class="carousel-slide">
+        <button class="carousel-next" onclick="nextSlide('carousel-aarni')" aria-label="Seuraava kuva">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="cdot active" onclick="goToSlide('carousel-aarni',0)"></button>
+          <button class="cdot" onclick="goToSlide('carousel-aarni',1)"></button>
+          <button class="cdot" onclick="goToSlide('carousel-aarni',2)"></button>
+        </div>
       </div>
       <div class="product-body">
         <span class="product-tag">Premium liikelahja</span>
@@ -58,11 +63,15 @@
     </article>
 
     <article class="product-card">
-      <div class="product-img card-slider" id="s-kaapeli" style="position:relative;overflow:hidden;padding:0;">
-        <img class="s-img" src="kuvat/liikelahjat latauskaapeli1.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.8s;">
-        <img class="s-img" src="kuvat/liikelahjat latauskaapeli2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
-        <button onclick="sNav('s-kaapeli',-1)" class="s-btn s-btn-l">&#8249;</button>
-        <button onclick="sNav('s-kaapeli',1)" class="s-btn s-btn-r">&#8250;</button>
+      <div class="product-img carousel" id="carousel-kaapeli">
+        <button class="carousel-prev" onclick="prevSlide('carousel-kaapeli')" aria-label="Edellinen kuva">&#8249;</button>
+        <img src="kuvat/liikelahjat latauskaapeli1.jpg" alt="Latauskaapeli 1" class="carousel-slide active">
+        <img src="kuvat/liikelahjat latauskaapeli2.jpg" alt="Latauskaapeli 2" class="carousel-slide">
+        <button class="carousel-next" onclick="nextSlide('carousel-kaapeli')" aria-label="Seuraava kuva">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="cdot active" onclick="goToSlide('carousel-kaapeli',0)"></button>
+          <button class="cdot" onclick="goToSlide('carousel-kaapeli',1)"></button>
+        </div>
       </div>
       <div class="product-body">
         <span class="product-tag">Käytännöllinen</span>
@@ -79,11 +88,15 @@
     </article>
 
     <article class="product-card">
-      <div class="product-img card-slider" id="s-kyna" style="position:relative;overflow:hidden;padding:0;">
-        <img class="s-img" src="kuvat/liikelahjat Sapphire_pen.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.8s;">
-        <img class="s-img" src="kuvat/liikelahjat Jakokynä.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
-        <button onclick="sNav('s-kyna',-1)" class="s-btn s-btn-l">&#8249;</button>
-        <button onclick="sNav('s-kyna',1)" class="s-btn s-btn-r">&#8250;</button>
+      <div class="product-img carousel" id="carousel-kyna">
+        <button class="carousel-prev" onclick="prevSlide('carousel-kyna')" aria-label="Edellinen kuva">&#8249;</button>
+        <img src="kuvat/liikelahjat Sapphire_pen.jpg" alt="Logokynä 1" class="carousel-slide active">
+        <img src="kuvat/liikelahjat Jakokynä.jpg" alt="Logokynä 2" class="carousel-slide">
+        <button class="carousel-next" onclick="nextSlide('carousel-kyna')" aria-label="Seuraava kuva">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="cdot active" onclick="goToSlide('carousel-kyna',0)"></button>
+          <button class="cdot" onclick="goToSlide('carousel-kyna',1)"></button>
+        </div>
       </div>
       <div class="product-body">
         <span class="product-tag">Klassikko</span>
@@ -100,11 +113,15 @@
     </article>
 
     <article class="product-card">
-      <div class="product-img card-slider" id="s-pullo" style="position:relative;overflow:hidden;padding:0;">
-        <img class="s-img" src="kuvat/liikelhahjat Juomapullo1.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.8s;">
-        <img class="s-img" src="kuvat/liikelhahjat Juomapullo2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
-        <button onclick="sNav('s-pullo',-1)" class="s-btn s-btn-l">&#8249;</button>
-        <button onclick="sNav('s-pullo',1)" class="s-btn s-btn-r">&#8250;</button>
+      <div class="product-img carousel" id="carousel-pullo">
+        <button class="carousel-prev" onclick="prevSlide('carousel-pullo')" aria-label="Edellinen kuva">&#8249;</button>
+        <img src="kuvat/liikelhahjat Juomapullo1.jpg" alt="Juomapullo 1" class="carousel-slide active">
+        <img src="kuvat/liikelhahjat Juomapullo2.jpg" alt="Juomapullo 2" class="carousel-slide">
+        <button class="carousel-next" onclick="nextSlide('carousel-pullo')" aria-label="Seuraava kuva">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="cdot active" onclick="goToSlide('carousel-pullo',0)"></button>
+          <button class="cdot" onclick="goToSlide('carousel-pullo',1)"></button>
+        </div>
       </div>
       <div class="product-body">
         <span class="product-tag">Ekologinen</span>
@@ -121,11 +138,15 @@
     </article>
 
     <article class="product-card">
-      <div class="product-img card-slider" id="s-safecard" style="position:relative;overflow:hidden;padding:0;">
-        <img class="s-img" src="kuvat/Punkinpoistaja1 – liike.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 0.8s;">
-        <img class="s-img" src="kuvat/Punkinpoistaja2 – liike.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s;">
-        <button onclick="sNav('s-safecard',-1)" class="s-btn s-btn-l">&#8249;</button>
-        <button onclick="sNav('s-safecard',1)" class="s-btn s-btn-r">&#8250;</button>
+      <div class="product-img carousel" id="carousel-safecard">
+        <button class="carousel-prev" onclick="prevSlide('carousel-safecard')" aria-label="Edellinen kuva">&#8249;</button>
+        <img src="kuvat/Punkinpoistaja1 – liike.jpg" alt="SafeCard 1" class="carousel-slide active">
+        <img src="kuvat/Punkinpoistaja2 – liike.jpg" alt="SafeCard 2" class="carousel-slide">
+        <button class="carousel-next" onclick="nextSlide('carousel-safecard')" aria-label="Seuraava kuva">&#8250;</button>
+        <div class="carousel-dots">
+          <button class="cdot active" onclick="goToSlide('carousel-safecard',0)"></button>
+          <button class="cdot" onclick="goToSlide('carousel-safecard',1)"></button>
+        </div>
       </div>
       <div class="product-body">
         <span class="product-tag">Jakotuote</span>
@@ -151,16 +172,28 @@
   <div class="footer-col"><h4>Yhteystiedot</h4><p>Jussi Lepistö</p><a href="tel:0408641384">040 864 1384</a><a href="mailto:jussi.lepisto@promego.fi">jussi.lepisto@promego.fi</a><p>Niemelänkatu 17, 92100 Raahe</p></div>
 </div><div class="footer-bottom"><span>© 2025 Promego Oy. Y-tunnus: 3340824-8</span><span>www.promego.fi</span></div></footer>
 <script>
-  const sliders = {};
-  document.querySelectorAll('.card-slider').forEach(el => {
-    const imgs = Array.from(el.querySelectorAll('.s-img'));
-    sliders[el.id] = { imgs, cur: 0 };
-  });
-  function sNav(id, dir) {
-    const s = sliders[id];
-    s.imgs[s.cur].style.opacity = '0';
-    s.cur = (s.cur + dir + s.imgs.length) % s.imgs.length;
-    s.imgs[s.cur].style.opacity = '1';
+  function goToSlide(carouselId, index) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = carousel.querySelectorAll('.cdot');
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+  }
+  function nextSlide(carouselId) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    let current = 0;
+    slides.forEach((s, i) => { if (s.classList.contains('active')) current = i; });
+    goToSlide(carouselId, (current + 1) % slides.length);
+  }
+  function prevSlide(carouselId) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    let current = 0;
+    slides.forEach((s, i) => { if (s.classList.contains('active')) current = i; });
+    goToSlide(carouselId, (current - 1 + slides.length) % slides.length);
   }
 </script>
 </body></html>
