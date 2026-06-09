@@ -635,6 +635,7 @@ footer {
   overflow: hidden;
   aspect-ratio: 1517 / 436;
   min-height: 320px;
+  max-width: 100%;
   display: flex;
   align-items: center;
 }
