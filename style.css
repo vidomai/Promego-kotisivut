@@ -630,7 +630,7 @@ footer {
   background: var(--green-dark);
   overflow: hidden;
   aspect-ratio: 1517 / 436;
-  min-height: 200px;
+  min-height: 320px;
   display: flex;
   align-items: center;
 }
@@ -681,7 +681,7 @@ footer {
 
 .hero h1 {
   font-family: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
-  font-size: clamp(3.6rem, 7.5vw, 5.9rem);
+  font-size: clamp(2.6rem, 5.5vw, 4.4rem);
   font-weight: 800;
   color: var(--white);
   line-height: 1.08;
@@ -692,7 +692,7 @@ footer {
 
 .hero p {
   color: rgba(255,255,255,.85);
-  font-size: 1.66rem;
+  font-size: 1.3rem;
   font-weight: 300;
   max-width: 100%;
   line-height: 1.6;
@@ -1277,6 +1277,9 @@ footer {
   .lippis-grid { grid-template-columns: 1fr; }
   .product-grid { grid-template-columns: 1fr; }
   .hero-content { padding: 48px 16px; }
+  .hero { aspect-ratio: unset; min-height: 480px; }
+  .hero h1 { font-size: 1.9rem; }
+  .hero p { font-size: 1rem; }
 }
 
 /* ══════════════════════════════════════════
