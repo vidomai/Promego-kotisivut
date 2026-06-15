@@ -213,9 +213,51 @@
       alert('Täytä vaaditut kentät (nimi, sähköposti ja viesti).');
       return;
     }
-    document.getElementById('successMsg').style.display = 'block';
-    document.querySelector('.btn-submit').disabled = true;
-    document.querySelector('.btn-submit').textContent = 'Lähetetty';
+
+    const puhelin = document.getElementById('puhelin').value.trim();
+    const tuote = document.getElementById('tuote').value.trim();
+    const maara = document.getElementById('maara').value.trim();
+
+    const btn = document.querySelector('.btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Lähetetään...';
+
+    let viestiTeksti = viesti;
+    if (tuote || maara || puhelin) {
+      viestiTeksti += '\n\n---';
+      if (tuote) viestiTeksti += '\nTuote: ' + tuote;
+      if (maara) viestiTeksti += '\nKappalemäärä: ' + maara;
+      if (puhelin) viestiTeksti += '\nPuhelin: ' + puhelin;
+    }
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: '7db38fed-b3a4-43b0-bd8b-7e97b127f7b6',
+        name: nimi,
+        email: email,
+        message: viestiTeksti,
+        subject: 'Uusi yhteydenotto – Promego.fi',
+        from_name: 'Promego kotisivut'
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        document.getElementById('successMsg').style.display = 'block';
+        btn.textContent = 'Lähetetty';
+      } else {
+        alert('Virhe lähetyksessä. Yritä uudelleen tai ota yhteyttä sähköpostitse.');
+        btn.disabled = false;
+        btn.textContent = 'Lähetä viesti →';
+      }
+    })
+    .catch(() => {
+      alert('Virhe lähetyksessä. Yritä uudelleen tai ota yhteyttä sähköpostitse.');
+      btn.disabled = false;
+      btn.textContent = 'Lähetä viesti →';
+    });
   }
 </script>
 
